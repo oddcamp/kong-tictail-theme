@@ -1,3 +1,13 @@
 store.json
 tmp
 theme.mustache
+
+.sass-cache*
+
+# Node modules
+node_modules/
+
+# Bower components
+static/vendor
+
+static/assets/stylesheets/application.css

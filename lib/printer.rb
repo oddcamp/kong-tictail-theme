@@ -16,8 +16,9 @@ class Printer
         product_page = product_page.sub(/\{\{\{price_with_currency\}\}\}/, '{{price_with_currency}}')
         product_page = product_page.sub(/\{\{\{description\}\}\}/, '{{description}}')
 
-        css = File.read("./static/style.css")
-        css += File.read("./static/dropkick.css")
+        #css = File.read("./static/style.css")
+        #css += File.read("./static/dropkick.css")
+        css = File.read("./static/assets/stylesheets/application.css")
 
         tictail_misc = File.read("./templates/tictail/misc.mustache")
 

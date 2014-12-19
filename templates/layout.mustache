@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
+  <head>
     <title>
-        {{store_name}}
-        {{! Add the label of the current navigation item on list pages }}
-        {{#list_page}}{{#navigation}}{{#is_current}}- {{label}}{{/is_current}}{{/navigation}}{{/list_page}}
-        {{! Add the product title on product pages }}
-        {{#product_page}}{{#product}}- {{title}}{{/product}}{{/product_page}}
-        {{! Add "About" on the about page }}
-        {{#about_page}}- {{#lang}}About{{/lang}}{{/about_page}}
+      {{store_name}}
+      {{! Add the label of the current navigation item on list pages }}
+      {{#list_page}}{{#navigation}}{{#is_current}}- {{label}}{{/is_current}}{{/navigation}}{{/list_page}}
+      {{! Add the product title on product pages }}
+      {{#product_page}}{{#product}}- {{title}}{{/product}}{{/product_page}}
+      {{! Add "About" on the about page }}
+      {{#about_page}}- {{#lang}}About{{/lang}}{{/about_page}}
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link href="{{assets_url}}/771/css/anythingslider.css" rel="stylesheet" type="text/css">
+    <!--<link href="{{assets_url}}/771/css/anythingslider.css" rel="stylesheet" type="text/css">
     <link href="{{assets_url}}/shared/css/base.css" rel="stylesheet" type="text/css">
     <link href='//fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <link href="/style.css" rel="stylesheet" type="text/css">
-    <link href="/dropkick.css" rel="stylesheet" type="text/css">
+    <link href="/dropkick.css" rel="stylesheet" type="text/css">-->
+
+    <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css">
 
     <!--[if lt IE 9]>
     <script src="{{assets_url}}/shared/js/html5shiv.js"></script>
     <![endif]-->
-</head>
-<body>
+  </head>
+  <body>
 
 <header class="container">
 
@@ -44,11 +45,6 @@
         {{/no_logotype}}
     </a>
 
-    <div class="burger">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-    </div>
 
     <div class="full_navigation">
 
@@ -240,8 +236,3 @@ $('header .burger').click(function() {
 
 </body>
 </html>
-
-<!--
-Want to create your own Tictail theme?
-Check out the documentation at https://tictail.com/docs
--->

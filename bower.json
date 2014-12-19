@@ -1,0 +1,8 @@
+{
+  "name": "kong-tictail-theme",
+  "version": "13.3.7",
+  "dependencies": {
+    "modernizr": "~2.8.3",
+    "normalize-scss": "~2.1.3"
+  }
+}
