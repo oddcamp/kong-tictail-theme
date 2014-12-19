@@ -1,0 +1,1 @@
+$(document.body).append("<img src='/tictail-buttons.png' style='position:fixed; right:10px; top:8px; z-index:100000;'>");
