@@ -21,9 +21,8 @@ class Printer
         css = File.read("./static/assets/stylesheets/application.css")
 
         tictail_misc = File.read("./templates/tictail/misc.mustache")
-
-        layout = layout.sub(/\<link href=\"\/dropkick\.css\" rel=\"stylesheet\" type=\"text\/css\"\>/, '')
-        layout = layout.sub(/\<link href=\"\/style\.css\" rel=\"stylesheet\" type=\"text\/css\"\>/, '<style type="text/css">'+css+'</style>')
+        #/assets/stylesheets/application.css
+        layout = layout.sub(/\<link href=\"\/assets\/stylesheets\/application\.css\" rel=\"stylesheet\" type=\"text\/css\"\>/, '<style type="text/css">'+css+'</style>')
         layout = layout.sub(/\{\{\> tictail\/misc\}\}/, '')
         layout = layout.gsub(/\{\{#has_children\}\}/, '{{#children?}}')
         layout = layout.gsub(/\{\{\/has_children\}\}/, '{{/children?}}')

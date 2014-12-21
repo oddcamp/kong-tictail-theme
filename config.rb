@@ -6,5 +6,5 @@ sass_dir = "static/assets/stylesheets"
 images_dir = "static/assets/images"
 generated_images_dir = "static/assets/images/generated"
 relative_assets = true
-line_comments = true
-output_style = :expanded
+line_comments = false
+output_style = :compressed

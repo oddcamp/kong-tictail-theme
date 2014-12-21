@@ -3,22 +3,26 @@ module.exports = function(grunt) {
 grunt.initConfig({
   exec: {
     build: {
-      //cmd: 'bower install',
+      cmd: 'bower install',
       cmd: 'bundle exec compass compile'
     },
-    serve: {
+    assets: {
       cmd: 'bundle exec compass watch'
     },
-    deploy: {
-      cmd: 'fab deploy'
+    assets_deploy: {
+      cmd: 'fab prod deploy'
+    },
+    serve: {
+      cmd: 'bundle exec rackup config.ru'
     }
   }
 });
 
 grunt.loadNpmTasks('grunt-exec');
 
-grunt.registerTask('default', [ 'exec:build' ]);
+grunt.registerTask('default', [ 'exec:server' ]);
 grunt.registerTask('serve', [ 'exec:serve' ]);
-grunt.registerTask('deploy', [ 'exec:build', 'exec:deploy' ]);
+grunt.registerTask('assets', [ 'exec:assets' ]);
+grunt.registerTask('deploy', [ 'exec:build', 'exec:assets_deploy' ]);
 
 };
