@@ -10,4 +10,4 @@ node_modules/
 # Bower components
 static/vendor
 
-static/assets/stylesheets/application.css
+static/assets/dist

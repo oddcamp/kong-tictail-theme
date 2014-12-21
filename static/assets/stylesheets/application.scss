@@ -1,4 +1,8 @@
 @import "compass";
 @import "breakpoint";
 
-@import "../../vendor/bower_components/normalize-scss/normalize"
+@import "../../vendor/bower_components/normalize-scss/normalize";
+
+body {
+  background: blue;
+}

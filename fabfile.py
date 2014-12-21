@@ -13,7 +13,7 @@ Environments
 def prod():
   env.hosts = ['178.62.13.136']
   env.user = 'root'
-  env.path = '/var/www/cdn.konginitiative.com/static/assets'
+  env.path = '/var/www/cdn.konginitiative.com/static'
 
 "Default to 'dev' environment"
 prod()
@@ -29,7 +29,7 @@ def deploy():
   rsync_project(
     env.path,
     'static/assets',
-    ['.git', '.git*', '.DS_Store', '.sass-cache*', '*.scss'],
+    ['.git', '.git*', '.DS_Store', '.sass-cache*', 'stylesheets', 'javascripts'],
     True
   )
 
