@@ -21,7 +21,7 @@ class Printer
 
         tictail_misc = File.read("./templates/tictail/misc.mustache")
 
-        layout = layout.sub(/\<link href=\"\/assets\/dist\/application\.css\" rel=\"stylesheet\" type=\"text\/css\"\>/, '<link rel="stylesheet" type="text/css" src="//cdn.konginitiative.com/static/assets/dist/application.css">')
+        layout = layout.sub(/\<link href=\"\/assets\/dist\/application\.css\" rel=\"stylesheet\" type=\"text\/css\"\>/, '<link rel="stylesheet" type="text/css" href="//cdn.konginitiative.com/static/assets/dist/application.css">')
         layout = layout.sub(/\{\{\> tictail\/misc\}\}/, '')
         layout = layout.gsub(/\{\{#has_children\}\}/, '{{#children?}}')
         layout = layout.gsub(/\{\{\/has_children\}\}/, '{{/children?}}')
