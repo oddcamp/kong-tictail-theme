@@ -27,6 +27,7 @@ grunt.initConfig({
       options: {
         config: 'config.rb',
         bundleExec: true,
+        outputStyle: 'expanded',
         watch: true
       }
     }
