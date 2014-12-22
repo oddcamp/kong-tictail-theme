@@ -52,7 +52,8 @@ grunt.initConfig({
       cmd: 'bundle exec compass compile'
     },
     deploy: {
-      cmd: "rsync -avz --delete --exclude 'stylesheets' --exclude 'javascripts' --exclude '.git*' --exclude '.DS_Store' --exclude '.sass-cache*' static/assets/ root@178.62.13.136:/var/www/cdn.konginitiative.com/static/assets/"
+      cmd: "rsync -avz --delete --exclude 'stylesheets' --exclude 'javascripts' --exclude '.git*' --exclude '.DS_Store' --exclude '.sass-cache*' static/assets/ root@178.62.13.136:/var/www/cdn.konginitiative.com/static/assets/",
+      cmd: 'ruby lib/printer.rb'
     },
     serve: {
       cmd: 'bundle exec rackup config.ru'
