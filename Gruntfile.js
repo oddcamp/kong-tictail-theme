@@ -6,6 +6,9 @@ grunt.initConfig({
   concat: {
     dist: {
       src: [
+        'static/vendor/bower_components/modernizr/modernizr.js',
+        'static/vendor/bower_components/jquery/dist/jquery.js',
+        'static/vendor/bower_components/velocity/velocity.min.js',
         'static/assets/javascripts/*.js'
       ],
       dest: 'static/assets/dist/application.js',
