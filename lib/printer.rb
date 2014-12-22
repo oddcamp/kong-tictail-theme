@@ -7,6 +7,7 @@ class Printer
         layout = File.read("./templates/layout.mustache")
         layout = layout.sub(/\{\{\{search\}\}\}/, '{{search}}')
         layout = layout.sub(/\<script id=\"theme-builder\" src=\"\/theme-builder.js\"\>\<\/script\>/, '')
+        layout = layout.sub(/\<script src=\"\/assets\/dist\/application.min.js\"\>\<\/script\>/, '<script src="//cdn.konginitiative.com/static/assets/dist/application.min.js"></script>')
 
         list_page = File.read("./templates/list_page.mustache")
         list_page = list_page.sub(/\{\{\{price_with_currency\}\}\}/, '{{price_with_currency}}')
@@ -16,13 +17,11 @@ class Printer
         product_page = product_page.sub(/\{\{\{price_with_currency\}\}\}/, '{{price_with_currency}}')
         product_page = product_page.sub(/\{\{\{description\}\}\}/, '{{description}}')
 
-        #css = File.read("./static/style.css")
-        #css += File.read("./static/dropkick.css")
-        css = File.read("./static/assets/stylesheets/application.css")
+        css = File.read("./static/assets/dist/application.css")
 
         tictail_misc = File.read("./templates/tictail/misc.mustache")
-        #/assets/stylesheets/application.css
-        layout = layout.sub(/\<link href=\"\/assets\/stylesheets\/application\.css\" rel=\"stylesheet\" type=\"text\/css\"\>/, '<style type="text/css">'+css+'</style>')
+
+        layout = layout.sub(/\<link href=\"\/assets\/dist\/application\.css\" rel=\"stylesheet\" type=\"text\/css\"\>/, '<link rel="stylesheet" type="text/css" src="//cdn.konginitiative.com/static/assets/dist/application.css">')
         layout = layout.sub(/\{\{\> tictail\/misc\}\}/, '')
         layout = layout.gsub(/\{\{#has_children\}\}/, '{{#children?}}')
         layout = layout.gsub(/\{\{\/has_children\}\}/, '{{/children?}}')

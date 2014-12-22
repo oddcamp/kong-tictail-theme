@@ -52,7 +52,9 @@ grunt.initConfig({
       cmd: 'bundle exec compass compile'
     },
     deploy: {
-      cmd: "rsync -avz --delete --exclude 'stylesheets' --exclude 'javascripts' --exclude '.git*' --exclude '.DS_Store' --exclude '.sass-cache*' static/assets/ root@178.62.13.136:/var/www/cdn.konginitiative.com/static/assets/",
+      cmd: "rsync -avz --delete --exclude 'stylesheets' --exclude 'javascripts' --exclude '.git*' --exclude '.DS_Store' --exclude '.sass-cache*' static/assets/ root@178.62.13.136:/var/www/cdn.konginitiative.com/static/assets/"
+    },
+    printer: {
       cmd: 'ruby lib/printer.rb'
     },
     serve: {
@@ -69,6 +71,6 @@ grunt.loadNpmTasks('grunt-contrib-compass');
 grunt.loadNpmTasks('grunt-contrib-watch');
 
 grunt.registerTask('default', [ 'concurrent:serve' ]);
-grunt.registerTask('deploy', [ 'exec:build', 'concat', 'uglify', 'exec:deploy' ]);
+grunt.registerTask('deploy', [ 'exec:build', 'concat', 'uglify', 'exec:deploy', 'exec:printer' ]);
 
 };
