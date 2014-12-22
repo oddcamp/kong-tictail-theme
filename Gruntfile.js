@@ -40,7 +40,7 @@ grunt.initConfig({
   },
 
   concurrent: {
-    target1: ['watch', 'exec:serve']
+    serve: ['watch', 'exec:serve']
   },
 
   exec: {
@@ -49,7 +49,7 @@ grunt.initConfig({
       cmd: 'bundle exec compass compile'
     },
     deploy: {
-      cmd: 'fab prod deploy'
+      cmd: "rsync -avz --delete --exclude 'stylesheets' --exclude 'javascripts' --exclude '.git*' --exclude '.DS_Store' --exclude '.sass-cache*' static/assets/ root@178.62.13.136:/var/www/cdn.konginitiative.com/static/assets/"
     },
     serve: {
       cmd: 'bundle exec rackup config.ru'
@@ -64,7 +64,7 @@ grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-compass');
 grunt.loadNpmTasks('grunt-contrib-watch');
 
-grunt.registerTask('default', [ 'concurrent:target1' ]);
+grunt.registerTask('default', [ 'concurrent:serve' ]);
 grunt.registerTask('deploy', [ 'exec:build', 'concat', 'uglify', 'exec:deploy' ]);
 
 };
