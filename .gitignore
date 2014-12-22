@@ -11,10 +11,10 @@ tmp
 .sass-cache*
 
 # Node modules
-node_modules/
+node_modules
 
-# Bower components
-static/vendor
+# Vendor
+vendor
 
 # Compiled CSS and JS
 static/assets/dist

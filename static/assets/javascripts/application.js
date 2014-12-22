@@ -13,10 +13,10 @@ Modernizr.addTest('hires', function() {
   var dpr = window.devicePixelRatio ||
 
   // fallback for IE
-    (window.screen.deviceXDPI / window.screen.logicalXDPI) ||
+  (window.screen.deviceXDPI / window.screen.logicalXDPI) ||
 
   // default value
-    1;
+  1;
 
   return !!(dpr > 1);
 });
