@@ -1,7 +1,13 @@
+# Store contents
 store.json
-tmp
+
+# Rendered theme file
 theme.mustache
 
+# Tmp
+tmp
+
+# Sass stuff
 .sass-cache*
 
 # Node modules
@@ -10,4 +16,5 @@ node_modules/
 # Bower components
 static/vendor
 
+# Compiled CSS and JS
 static/assets/dist
