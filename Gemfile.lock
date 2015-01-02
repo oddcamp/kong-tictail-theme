@@ -20,7 +20,7 @@ GEM
       sass (>= 3.2, < 3.5)
     domain_name (0.5.12)
       unf (>= 0.0.5, < 1.0.0)
-    eventmachine (1.0.3)
+    eventmachine (1.0.4)
     ffi (1.9.6)
     http-cookie (1.0.1)
       domain_name (~> 0.5)
