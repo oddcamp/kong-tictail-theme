@@ -7,7 +7,7 @@ require 'httparty'
 class App < Sinatra::Base
   register Mustache::Sinatra
 
-  require 'views/layout'
+  require_relative 'views/layout'
 
   set :mustache, {
     :views     => 'views/',
