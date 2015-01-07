@@ -34,7 +34,8 @@ Your Tictail data is downloaded to your local computer, then I've made a
 small Sinatra app that mimics the official Tictail stores with same routes,
 templates, etc.
 
-## Requirements 
+## Requirements
+* Direnv - http://direnv.net/
 * Ruby
 * Bundler
 
@@ -47,25 +48,31 @@ templates, etc.
   $ bundle
   ```
 
-3. Fetch your Tictail store data into `store.json` by this command:
+3. Set your Tictail credentials to .envrc file,
   ```
-  $ ruby lib/fetcher.rb <email> <password>
-  
-  # ex: ruby lib/fetcher javve@coolemail.com supersecret
+  export TICTAIL_EMAIL=javve@coolemail.com
+  export TICTAIL_PASSWORD=supersecret
   ```
 
-4. Spin up a server with [Rack](http://rack.rubyforge.org/doc/).
+4. Fetch your Tictail store data into `store.json` by this command:
+  ```
+  $ rake fetch <email> <password>
+  
+  # ex: rake fetch javve@coolemail.com supersecret
+  ```
+
+5. Spin up a server with [Rack](http://rack.rubyforge.org/doc/).
   ```
   $ rackup config.ru
   [2013-08-09 12:29:48] INFO  WEBrick 1.3.1
   [2013-08-09 12:29:48] INFO  ruby 1.9.3 (2012-02-16) [x86_64-darwin12.2.0]
   [2013-08-09 12:29:48] INFO  WEBrick::HTTPServer#start: pid=7101 port=9292
   ```
-5. Build you theme by changing the files in `/templates`
-6. When you are ready to test your theme at Tictail.com just write this command in the terminal:
+6. Build you theme by changing the files in `/templates`
+7. When you are ready to test your theme at Tictail.com just write this command in the terminal:
   
   ```
-  $ ruby lib/printer.rb
+  $ rake print
   ```
   *Your theme is now saved to both you __clipboad__ and to __theme.mustache__*.  
   Great success! Just paste it into the Tictail.com-editor
