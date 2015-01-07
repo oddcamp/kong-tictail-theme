@@ -26,10 +26,11 @@ module Tictail
 
       @api = Tictail::Api.new(@agent, @store_id)
 
-      @logo = logo()
-      @description = description()
+      @logo = @store.logo
+      @products = @store.products
+      @description = @store.description
+
       navigation()
-      @products = @store.products()
 
       @store_data["logotype"] = @logo
       @store_data["description"] = @description
@@ -46,20 +47,6 @@ module Tictail
       sign_in_form.passwd = password
 
       @agent.submit(sign_in_form, sign_in_form.buttons.first)
-    end
-
-    def logo
-      logo = @api.get("store.media.logotype.get")["logotype"]
-      logo["sizes"].each do |key, value|
-        name = "url-" << key
-        logo[name] = value
-      end
-      logo.delete("sizes")
-      logo
-    end
-
-    def description
-      @api.get("store.description.get")["description"]
     end
 
     def navigation

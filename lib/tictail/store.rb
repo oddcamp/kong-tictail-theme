@@ -3,6 +3,7 @@ module Tictail
     def initialize(page)
       @page = page
       @api = Tictail::Api.new(Mechanize.new, store_id)
+      @api.sign_in(ENV['TICTAIL_EMAIL'], ENV['TICTAIL_PASSWORD'])
     end
 
     def store_id
@@ -17,9 +18,21 @@ module Tictail
       store
     end
 
-    def products
-      home_page = @api.sign_in(ENV['TICTAIL_EMAIL'], ENV['TICTAIL_PASSWORD'])
+    def logo
+      logo = @api.get("store.media.logotype.get")["logotype"]
+      logo["sizes"].each do |key, value|
+        name = "url-" << key
+        logo[name] = value
+      end
+      logo.delete("sizes")
+      logo
+    end
 
+    def description
+      @api.get("store.description.get")["description"]
+    end
+
+    def products
       products = @api.get_full('{"jsonrpc":"2.0","method":"store.product.search","params":{"store_id":' + store_id.to_s + ',"published":false,"limit":17,"offset":0,"order_by":"position","descending":false},"id":null}')
 
       products.each do |product|

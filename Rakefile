@@ -8,5 +8,4 @@ task :default => ['spec']
 
 require "./app"
 require "./lib/tictail"
-Dir.glob('lib/tasks/*.rake').each { |r| load r}
-
+Dir.glob('lib/tasks/*.rake').each { |r| load r }
