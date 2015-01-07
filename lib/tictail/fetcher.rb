@@ -8,35 +8,31 @@ require 'stringex'
 
 module Tictail
   class Fetcher
-    attr_accessor :store_id, :agent, :api, :store, :store_data, :logo, :description, :navigation, :original_navigation
+    attr_accessor :store_id, :agent, :api, :store_data, :navigation, :original_navigation
     attr_reader :home_page
 
     def initialize(email, password)
       @agent = Mechanize.new
 
       @home_page = sign_in(email, password)
+
       if @home_page.title == "Tictail - Log in"
         puts "Error. Could not log in. Wrong email or password? <3"
         exit
       end
 
-      @store = Tictail::Store.new(@home_page)
-      @store_id = @store.store_id
-      @store_data = @store.store_data
+      store = Tictail::Store.new(@home_page)
+      @store_data = store.store_data
 
-      @api = Tictail::Api.new(@agent, @store_id)
+      @api = Tictail::Api.new(@agent, store.store_id)
 
-      @logo = @store.logo
-      @products = @store.products
-      @description = @store.description
+      @store_data["logotype"] = store.logo
+      @store_data["description"] = store.description
+      @store_data["products"] = store.products
 
       navigation()
-
-      @store_data["logotype"] = @logo
-      @store_data["description"] = @description
       @store_data["navigation"] = @navigation
       @store_data["original_navigation"] = @original_navigation
-      @store_data["products"] = @products
     end
 
     def sign_in(email, password)
@@ -58,6 +54,15 @@ module Tictail
       fix_navigation_attributes()
       fix_subnav_and_nav_structure(subnav)
     end
+
+    def save
+      File.open("store.json","w") do |f|
+        f.write(JSON.pretty_generate(@store_data))
+      end
+      puts "Fetch successful! View your data in store.json"
+    end
+
+    private
 
     def get_subnav
       @navigation.select { |item| item["parent_id"] != 0 }
@@ -83,13 +88,6 @@ module Tictail
         subitem["url"] = parent["url"] + "/" + subitem["label"].to_url
         subitem["is_current"] = false
       end
-    end
-
-    def save
-      File.open("store.json","w") do |f|
-        f.write(JSON.pretty_generate(@store_data))
-      end
-      puts "Fetch successful! View your data in store.json"
     end
   end
 end
