@@ -8,7 +8,7 @@ require 'stringex'
 
 module Tictail
   class Fetcher
-    attr_accessor :store_id, :agent, :api, :store, :logo, :description, :navigation, :original_navigation
+    attr_accessor :store_id, :agent, :api, :store, :store_data, :logo, :description, :navigation, :original_navigation
     attr_reader :home_page
 
     def initialize(email, password)
@@ -19,21 +19,23 @@ module Tictail
         puts "Error. Could not log in. Wrong email or password? <3"
         exit
       end
-      @store_id = get_store_id(@home_page)
-      @store = get_store_data(@home_page)
+
+      @store = Tictail::Store.new(@home_page)
+      @store_id = @store.store_id
+      @store_data = @store.store_data
 
       @api = Tictail::Api.new(@agent, @store_id)
 
       @logo = logo()
       @description = description()
       navigation()
-      @products = products()
+      @products = @store.products()
 
-      @store["logotype"] = @logo
-      @store["description"] = @description
-      @store["navigation"] = @navigation
-      @store["original_navigation"] = @original_navigation
-      @store["products"] = @products
+      @store_data["logotype"] = @logo
+      @store_data["description"] = @description
+      @store_data["navigation"] = @navigation
+      @store_data["original_navigation"] = @original_navigation
+      @store_data["products"] = @products
     end
 
     def sign_in(email, password)
@@ -44,18 +46,6 @@ module Tictail
       sign_in_form.passwd = password
 
       @agent.submit(sign_in_form, sign_in_form.buttons.first)
-    end
-
-    def get_store_id(page)
-      get_store_data(page)["id"]
-    end
-
-    def get_store_data(page)
-      store = page.body.scan(/var ClientSession = (.*);\n/)[0][0]
-      store = JSON.parse(store)
-      store = store["storekeeper"]["stores"].first[1]
-      store["url"] = "/"
-      store
     end
 
     def logo
@@ -108,50 +98,9 @@ module Tictail
       end
     end
 
-    def products
-      products = @api.get_full('{"jsonrpc":"2.0","method":"store.product.search","params":{"store_id":' + store_id.to_s + ',"published":false,"limit":17,"offset":0,"order_by":"position","descending":false},"id":null}')
-      products.each do |product|
-        product_extra = @api.get_full('{"jsonrpc":"2.0","method":"store.product.get","params":{"store_id":' + store_id.to_s + ',"slug":"'+ product["url"][9,1000] +'","published":false},"id":null}')
-        product["all_images"] = product_extra["images"]
-
-        product = fix_stock(product)
-        product["price_with_currency"] = product["price"].split(".")[0] + " <span class='currency currency_sek'>"+ @store["currency"] + "</span>"
-
-        if product.has_key?("primary_image")
-          product["primary_image"]["sizes"].each do |key, value|
-            name = "url-" << key
-            product["primary_image"][name] = value
-          end
-          product["primary_image"].delete("sizes")
-        end
-
-        unless product["all_images"].nil?
-          product["all_images"].each do |image|
-            image["sizes"].each do |key, value|
-              name = "url-" << key
-              image[name] = value
-            end
-            image.delete("sizes")
-          end
-        end
-      end
-      products
-    end
-
-    def fix_stock(product)
-      if product["out_of_stock"] == 1
-        product["out_of_stock"] = true
-        product["in_stock"] = false
-      else
-        product["out_of_stock"] = false
-        product["in_stock"] = true
-      end
-      product
-    end
-
     def save
       File.open("store.json","w") do |f|
-        f.write(JSON.pretty_generate(@store))
+        f.write(JSON.pretty_generate(@store_data))
       end
       puts "Fetch successful! View your data in store.json"
     end

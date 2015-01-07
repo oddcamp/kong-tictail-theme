@@ -11,7 +11,7 @@ grunt.initConfig({
         'vendor/bower_components/velocity/velocity.min.js',
         'static/assets/javascripts/*.js'
       ],
-      dest: 'static/assets/dist/application.js',
+      dest: 'static/assets/dist/application.js'
     }
   },
 
@@ -38,8 +38,8 @@ grunt.initConfig({
       files: ['static/assets/javascripts/*.js'],
       tasks: ['concat', 'uglify', 'compass'],
       options: {
-        spawn: false,
-      },
+        spawn: false
+      }
     }
   },
 
@@ -55,8 +55,8 @@ grunt.initConfig({
     deploy: {
       cmd: "rsync -avz --delete --exclude 'stylesheets' --exclude 'javascripts' --exclude '.git*' --exclude '.DS_Store' --exclude '.sass-cache*' static/assets/ root@178.62.13.136:/var/www/cdn.konginitiative.com/static/assets/"
     },
-    printer: {
-      cmd: 'ruby lib/printer.rb'
+    print: {
+      cmd: 'bundle exec rake print'
     },
     serve: {
       cmd: 'bundle exec rackup config.ru'
@@ -72,6 +72,6 @@ grunt.loadNpmTasks('grunt-contrib-compass');
 grunt.loadNpmTasks('grunt-contrib-watch');
 
 grunt.registerTask('default', [ 'concurrent:serve' ]);
-grunt.registerTask('deploy', [ 'exec:build', 'concat', 'uglify', 'exec:deploy', 'exec:printer' ]);
+grunt.registerTask('deploy', [ 'exec:build', 'concat', 'uglify', 'exec:deploy', 'exec:print' ]);
 
 };

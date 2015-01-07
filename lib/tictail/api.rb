@@ -20,5 +20,15 @@ module Tictail
       data = JSON.parse(data)
       data["result"]
     end
+
+    def sign_in(email, password)
+      page = @agent.get('https://tictail.com/user/signin')
+
+      sign_in_form = page.form()
+      sign_in_form.email = email
+      sign_in_form.passwd = password
+
+      @agent.submit(sign_in_form, sign_in_form.buttons.first)
+    end
   end
 end
