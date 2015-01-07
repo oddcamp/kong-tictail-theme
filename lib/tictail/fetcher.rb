@@ -8,13 +8,11 @@ require 'stringex'
 
 module Tictail
   class Fetcher
-    attr_accessor :store_id, :agent, :api, :store_data, :navigation, :original_navigation
-    attr_reader :home_page
+    attr_reader :store_id, :agent, :api, :store_data, :navigation, :original_navigation, :home_page
 
     def initialize(email, password)
-      @agent = Mechanize.new
-
-      @home_page = sign_in(email, password)
+      @api = Tictail::Api.new
+      @home_page = @api.sign_in(email, password)
 
       if @home_page.title == "Tictail - Log in"
         puts "Error. Could not log in. Wrong email or password? <3"
@@ -24,7 +22,7 @@ module Tictail
       store = Tictail::Store.new(@home_page)
       @store_data = store.store_data
 
-      @api = Tictail::Api.new(@agent, store.store_id)
+      @api.store_id = store.store_id
 
       @store_data["logotype"] = store.logo
       @store_data["description"] = store.description
@@ -33,16 +31,6 @@ module Tictail
       navigation()
       @store_data["navigation"] = @navigation
       @store_data["original_navigation"] = @original_navigation
-    end
-
-    def sign_in(email, password)
-      page = @agent.get('https://tictail.com/user/signin')
-
-      sign_in_form = page.form()
-      sign_in_form.email = email
-      sign_in_form.passwd = password
-
-      @agent.submit(sign_in_form, sign_in_form.buttons.first)
     end
 
     def navigation

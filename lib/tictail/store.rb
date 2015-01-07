@@ -2,7 +2,9 @@ module Tictail
   class Store
     def initialize(page)
       @page = page
-      @api = Tictail::Api.new(Mechanize.new, store_id)
+
+      @api = Tictail::Api.new
+      @api.store_id = store_id
       @api.sign_in(ENV['TICTAIL_EMAIL'], ENV['TICTAIL_PASSWORD'])
     end
 
