@@ -1,4 +1,4 @@
-class Tictail_api
+class TictailApi
   attr_accessor :agent, :store_id
 
   def initialize(agent, store_id)

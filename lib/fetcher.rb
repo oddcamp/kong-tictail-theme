@@ -26,7 +26,7 @@ class Fetcher
     @store_id = get_store_id(page)
     @store = get_store_data(page)
 
-    @api = Tictail_api.new(@agent, @store_id)
+    @api = TictailApi.new(@agent, @store_id)
 
     @logo = logo()
     @description = description()
@@ -39,7 +39,7 @@ class Fetcher
     @store["original_navigation"] = @original_navigation
     @store["products"] = @products
 
-    save();
+    save
   end
 
   def sign_in(email, password)
@@ -75,8 +75,7 @@ class Fetcher
   end
 
   def description
-    description = @api.get("store.description.get")["description"]
-    description
+    @api.get("store.description.get")["description"]
   end
 
   def navigation
@@ -90,11 +89,11 @@ class Fetcher
   end
 
   def get_subnav
-    @navigation.select{ |item| item["parent_id"] != 0 }
+    @navigation.select { |item| item["parent_id"] != 0 }
   end
 
   def remove_subnavigation_from_main
-    @navigation.select!{ |item| item["parent_id"] == 0 }
+    @navigation.select! { |item| item["parent_id"] == 0 }
   end
 
   def fix_navigation_attributes
@@ -146,7 +145,7 @@ class Fetcher
   end
 
   def fix_stock(product)
-    if (product["out_of_stock"] == 1)
+    if product["out_of_stock"] == 1
       product["out_of_stock"] = true
       product["in_stock"] = false
     else
