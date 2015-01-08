@@ -29,12 +29,14 @@ module Tictail
 
       content = about_page + list_page + product_page
 
-      layout = layout.sub(/\{\{\{yield\}\}\}/, content)
+      @layout = layout.sub(/\{\{\{yield\}\}\}/, content)
+    end
 
+    def print
       File.open("theme.mustache", "w") do |f|
-        f.write(layout)
+        f.write(@layout)
       end
-      IO.popen('pbcopy', 'w').print layout
+      IO.popen('pbcopy', 'w').print @layout
 
       puts "Build successful! View your theme in theme.mustache (and it's added to your clipboard for convinient CMD+v into Tictail.com"
     end

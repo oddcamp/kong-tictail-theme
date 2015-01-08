@@ -26,15 +26,6 @@ RSpec.describe Tictail::Api do
     end
   end
 
-  describe "#get_full" do
-    it "calls the method and gets data as a hash" do
-      products = api.get_full('{"jsonrpc":"2.0","method":"store.product.search","params":{"store_id":' + store_id.to_s + ',"published":false,"limit":17,"offset":0,"order_by":"position","descending":false},"id":null}')
-
-      expect(products).to be_an Array
-      expect(products.first).to be_a Hash
-    end
-  end
-
   describe "#sign_in" do
     it "signs you in the store" do
       home_page = api.sign_in(email, password)
