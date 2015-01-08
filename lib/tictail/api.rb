@@ -2,8 +2,9 @@ module Tictail
   class Api
     attr_accessor :agent, :store_id
 
-    def initialize
+    def initialize(store_id = nil)
       @agent = Mechanize.new
+      @store_id = store_id
     end
 
     def get(method)

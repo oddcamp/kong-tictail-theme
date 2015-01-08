@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
+require 'pry'
 require 'rack/test/methods'
 
 require_relative File.join('..', 'app')

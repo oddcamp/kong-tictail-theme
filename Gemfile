@@ -12,6 +12,7 @@ gem "breakpoint"
 
 group :test, :development do
   gem 'rspec'
+  gem "pry"
 end
 
 group :test do
