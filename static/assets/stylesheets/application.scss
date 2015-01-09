@@ -3,6 +3,44 @@
 
 @import "../../../vendor/bower_components/normalize-scss/normalize";
 
-body {
-  background: image-url('test-cat.jpg');
+// -----------------------------------------------------------------------------
+// Index page intro
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// Product listing
+// -----------------------------------------------------------------------------
+
+.products {
+
+}
+
+.products__product {
+  background: red;
+  padding: 40px;
+  text-align: center;
+
+  a {
+    display: block;
+  }
+}
+
+.products__product__image {
+
+}
+
+.products__product__info {
+
+}
+
+.products__product__title {
+
+}
+
+.products__product__price {
+
+}
+
+.products__product__out-of-stock {
+
 }

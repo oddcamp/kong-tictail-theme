@@ -1,27 +1,34 @@
 {{#list_page}}
+  <main class="products">
+    {{#products}}
+      <article class="products__product {{#out_of_stock}}products__product--out-of-stock{{/out_of_stock}}" data-id="{{id}}">
+      <div class="foo">
+        <a href="{{url}}">
+          <figure class="products__product__image">
+              {{#primary_image}}
+                  <img src="{{url-1000}}" alt="{{title}}">
+              {{/primary_image}}
+          </figure>
+          <div class="products__product__info">
+              <h2 class="products__product__title">{{title}}</h2>
 
-    <section id="products">
-        <ul class="product_list">
-            {{#products}}
-            <li>
-                <a href="{{url}}" {{#out_of_stock}}class="out_of_stock"{{/out_of_stock}}>
-                    <div class="image_container">
-                        {{#primary_image}}
-                            <img src="{{url-300}}" alt="{{title}}">
-                        {{/primary_image}}
-                    </div>
-                    <div class="info">
-                        <h2>{{title}}</h2>
-                        {{#in_stock}}
-                        <h4 class="price">{{{price_with_currency}}}</h4>
-                        {{/in_stock}}
-                        {{#out_of_stock}}
-                        <h4 class="price out_of_stock_price">{{#lang}}Out of stock{{/lang}}</h4>
-                        {{/out_of_stock}}
-                    </div>
-                </a>
-            </li>
-            {{/products}}
-        </ul>
-    </section>
+              {{#in_stock}}
+                <div class="products__product__price">
+                  {{{price_with_currency}}}
+                </div>
+              {{/in_stock}}
+
+              {{#out_of_stock}}
+                <h4 class="products__product__out-of-stock">
+                  {{#lang}}
+                    Out of stock
+                  {{/lang}}
+                </h4>
+              {{/out_of_stock}}
+          </div>
+        </a>
+      </div>
+      </article>
+    {{/products}}
+  </main>
 {{/list_page}}
