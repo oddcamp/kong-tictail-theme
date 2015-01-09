@@ -3,9 +3,31 @@
 
 @import "../../../vendor/bower_components/normalize-scss/normalize";
 
+$ds-font-family: 'Titillium Web', sans-serif;
+
+html {
+  background: image-url('snow-footer.jpg') bottom center no-repeat;
+  color: #222;
+  font: 400 100%/1.6 $ds-font-family;
+  padding-bottom: 600px;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
 // -----------------------------------------------------------------------------
 // Index page intro
 // -----------------------------------------------------------------------------
+
+.logo-text {
+  font-size: 96px;
+  font-weight: 900;
+  line-height: 1;
+  padding: 60px 0;
+  text-align: center;
+}
 
 // -----------------------------------------------------------------------------
 // Product listing
@@ -16,17 +38,26 @@
 }
 
 .products__product {
-  background: red;
   padding: 40px;
   text-align: center;
 
   a {
+    color: #222;
     display: block;
+    text-decoration: none;
   }
 }
 
 .products__product__image {
+  @include transition-property(width);
+  @include transition-duration(.8s);
+  @include transition-timing-function(ease-in);
+  width: 90%;
+  margin: 0 auto;
 
+  .products__product:hover & {
+    width: 100%;
+  }
 }
 
 .products__product__info {
@@ -34,11 +65,30 @@
 }
 
 .products__product__title {
+  @include transition-property(all);
+  @include transition-duration(.8s);
+  @include transition-timing-function(ease-in);
+  background-color: rgba(white, .5);
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.2;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
 
+  .products__product:hover & {
+    margin-top: -50px;
+  }
 }
 
 .products__product__price {
-
+  @include border-radius(30px);
+  background: #222;
+  color: #fff;
+  display: inline-block;
+  line-height: 30px;
+  padding: 0 14px;
 }
 
 .products__product__out-of-stock {
