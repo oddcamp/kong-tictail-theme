@@ -1,5 +1,7 @@
 module Tictail
   class Store
+
+    # @param [Mechanize::Page] page
     def initialize(page)
       @page = page
 
@@ -8,6 +10,7 @@ module Tictail
       @api.sign_in(ENV['TICTAIL_EMAIL'], ENV['TICTAIL_PASSWORD'])
     end
 
+    # @return [Fixnum]
     def store_id
       store_data["id"]
     end
