@@ -13,21 +13,17 @@
 
     <meta name="viewport" content="width=device-width">
 
-    <link href="//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,700,700italic,900" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
     <link href="/assets/dist/application.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <header class="header">
-      <div class="logo-text">
-        <small style="font-size: 36px;">THE</small>
-        KONG
-        <span style="font-size: 48px;">INITIATIVE</span>
-      </div>
-      <div class="logo">
+
+      <!--<div class="logo">
         <a href="{{store_url}}">
           <img src="/assets/images/test-cat.jpg" alt="{{store_name}}">
         </a>
-      </div>
+      </div>-->
       <!-- / .logo -->
 
       <div class="nav">
@@ -87,6 +83,22 @@
       </div>
       <!-- / .nav -->
     </header>
+
+    <section class="intro">
+      <div class="intro__content">
+        <div class="logo-text">
+          <small style="font-size: 48px;">THE</small>
+          KONG
+          <span style="font-size: 48px;">INITIATIVE</span>
+          <br>
+          <span style="font-size: 24px;font-weight: 300">Snowboarding doesn't get bigger.</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="newsletter">
+
+    </div>
 
     <main role="main">
       {{{yield}}}
