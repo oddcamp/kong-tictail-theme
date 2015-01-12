@@ -1,6 +1,6 @@
 require_relative '../../spec_helper'
 
-RSpec.describe Tictail::Api do
+RSpec.describe Tictail::Api, vcr: true do
   let(:api) { Tictail::Api.new }
   let(:email) { ENV['TICTAIL_EMAIL'] }
   let(:password) { ENV['TICTAIL_PASSWORD'] }

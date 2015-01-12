@@ -13,6 +13,8 @@ gem "breakpoint"
 group :test, :development do
   gem 'rspec'
   gem "pry"
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :test do

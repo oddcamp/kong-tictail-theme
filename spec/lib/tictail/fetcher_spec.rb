@@ -1,6 +1,6 @@
 require_relative '../../spec_helper'
 
-RSpec.describe Tictail::Fetcher do
+RSpec.describe Tictail::Fetcher, vcr: true do
   let(:email) { ENV['TICTAIL_EMAIL'] }
   let(:password) { ENV['TICTAIL_PASSWORD'] }
 

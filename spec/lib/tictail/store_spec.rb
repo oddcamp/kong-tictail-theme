@@ -1,6 +1,6 @@
 require_relative '../../spec_helper'
 
-RSpec.describe Tictail::Store do
+RSpec.describe Tictail::Store, vcr: true do
   let(:fetcher) { Tictail::Fetcher.new(ENV['TICTAIL_EMAIL'], ENV['TICTAIL_PASSWORD']) }
   let(:page) { fetcher.home_page }
   let(:store) { Tictail::Store.new(page) }
