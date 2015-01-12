@@ -3,7 +3,7 @@ require_relative '../../spec_helper'
 RSpec.describe Tictail::Printer do
   let(:printer) { Tictail::Printer.new }
 
-  describe "print" do
+  describe "#print" do
     it "prints out data to theme.moustache file" do
       expected_message = "Build successful! View your theme in theme.mustache (and it's added to your clipboard for convinient CMD+v into Tictail.com\n"
 
