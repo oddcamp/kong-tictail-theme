@@ -1,7 +1,8 @@
 require_relative '../../spec_helper'
 
 RSpec.describe Tictail::Printer do
-  let(:printer) { Tictail::Printer.new }
+  let(:layout) { Tictail::Layout.new }
+  let(:printer) { Tictail::Printer.new(layout) }
 
   describe "#print" do
     it "prints out data to theme.moustache file" do

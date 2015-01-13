@@ -14,6 +14,7 @@ end
 
 desc "Print your theme into theme.mustache (and clipboard)"
 task :print do
-  printer = Tictail::Printer.new
+  layout = Tictail::Layout.new
+  printer = Tictail::Printer.new(layout)
   printer.print
 end
