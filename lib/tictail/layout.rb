@@ -7,6 +7,7 @@ module Tictail
       @content = layout.sub(/\{\{\{yield\}\}\}/, pages)
     end
 
+    # @return [String]
     def about_page
       page = File.read("./templates/about_page.mustache")
 
@@ -14,12 +15,14 @@ module Tictail
            sub(/\{\{\{store_description\}\}\}/, '{{store_description}}')
     end
 
+    # @return [String]
     def list_page
       page = File.read("./templates/list_page.mustache")
 
       page.sub(/\{\{\{price_with_currency\}\}\}/, '{{price_with_currency}}')
     end
 
+    # @return [String]
     def product_page
       page = File.read("./templates/product_page.mustache")
 
@@ -28,6 +31,7 @@ module Tictail
            sub(/\{\{\{description\}\}\}/, '{{description}}')
     end
 
+    # @return [String]
     def layout
       layout_string = File.read("./templates/layout.mustache")
 

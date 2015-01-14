@@ -35,6 +35,7 @@ module Tictail
       @store_data["original_navigation"] = navigation.original_navigation
     end
 
+    # @param [String] file
     def save(file = "store.json")
       File.open(file, "w") do |f|
         f.write(JSON.pretty_generate(@store_data))
