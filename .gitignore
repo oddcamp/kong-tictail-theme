@@ -21,3 +21,6 @@ static/assets/dist
 
 # VCR cassettes
 spec/fixtures/vcr_cassettes
+
+# Env vars
+.envrc
