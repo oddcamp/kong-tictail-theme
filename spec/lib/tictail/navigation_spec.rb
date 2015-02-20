@@ -1,6 +1,6 @@
 require_relative '../../spec_helper'
 
-RSpec.describe Tictail::Navigation do
+RSpec.describe Tictail::Navigation, vcr: true do
   let(:email) { ENV['TICTAIL_EMAIL'] }
   let(:password) { ENV['TICTAIL_PASSWORD'] }
   let(:fetcher) { Tictail::Fetcher.new(email, password) }

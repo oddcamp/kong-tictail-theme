@@ -35,11 +35,12 @@ module Tictail
       @store_data["original_navigation"] = navigation.original_navigation
     end
 
-    def save
-      File.open("store.json","w") do |f|
+    # @param [String] file
+    def save(file = "store.json")
+      File.open(file, "w") do |f|
         f.write(JSON.pretty_generate(@store_data))
       end
-      puts "Fetch successful! View your data in store.json"
+      puts "Fetch successful! View your data in #{file}"
     end
   end
 end
