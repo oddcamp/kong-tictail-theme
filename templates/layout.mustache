@@ -11,100 +11,102 @@
       {{#about_page}}- {{#lang}}About{{/lang}}{{/about_page}}
     </title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width">
 
+    <link href="//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,700,700italic,900,300" rel="stylesheet" type="text/css">
     <link href="/assets/dist/application.css" rel="stylesheet" type="text/css">
   </head>
   <body>
+    <header class="header">
 
-<header class="container">
+      <!--<div class="logo">
+        <a href="{{store_url}}">
+          <img src="/assets/images/test-cat.jpg" alt="{{store_name}}">
+        </a>
+      </div>-->
+      <!-- / .logo -->
 
-    <a class="logotype {{#logotype}}with_logotype{{/logotype}}{{#no_logotype}}without_logotype{{/no_logotype}}" href="{{store_url}}">
-        {{#logotype}}
-            <img src="{{url-300}}" alt="{{store_name}}">
-            <span class="store_name">
-                {{store_name}}
-            </span>
-        {{/logotype}}
-        {{#no_logotype}}
-            <span class="store_name">
-                {{store_name}}
-            </span>
-        {{/no_logotype}}
-    </a>
+      <div class="nav">
+        <nav class="nav-primary {{#navigation}}{{#is_current}}{{#has_children}}nav-primary--has-subnav{{#children}}{{#is_current}} nav-primary--has-subnav--child-active{{/is_current}}{{/children}}{{/has_children}}{{/is_current}}{{/navigation}}">
+          <ul>
+              <li class="navigation_item {{#list_page}}{{#no_current_navigation}}selected{{/no_current_navigation}}{{/list_page}}">
+                  <a href="{{store_url}}">
+                      <i class="icon-th"></i> &nbsp;{{#lang}}All products{{/lang}}
+                  </a>
+              </li>
+              {{#navigation}}
+              <li class="navigation_item {{#is_current}}selected{{/is_current}}">
+                  <a href="{{url}}">
+                      {{label}}
+                  </a>
+              </li>
+              {{/navigation}}
 
+              <li id="about_link" class="store_link {{#about_page}}selected{{/about_page}}">
+                  <a href="{{store_url}}/about">
+                      <i class="icon-info-sign"></i> &nbsp;{{#lang}}About{{/lang}}
+                  </a>
+              </li>
 
-    <div class="full_navigation">
+              {{#store_blog_url}}
+              <li id="blog_link" class="store_link">
+                  <a href="{{store_blog_url}}" target="_blank">
+                      <i class="icon-globe"></i> &nbsp;{{#lang}}Blog{{/lang}}
+                  </a>
+              </li>
+              {{/store_blog_url}}
 
-        <nav class="main_navigation {{#navigation}}{{#is_current}}{{#has_children}}got_subnavigation{{#children}}{{#is_current}} child_active{{/is_current}}{{/children}}{{/has_children}}{{/is_current}}{{/navigation}}">
-            <ul>
-                <li class="navigation_item {{#list_page}}{{#no_current_navigation}}selected{{/no_current_navigation}}{{/list_page}}">
-                    <a href="{{store_url}}">
-                        <i class="icon-th"></i> &nbsp;{{#lang}}All items{{/lang}}
-                    </a>
-                </li>
-                {{#navigation}}
-                <li class="navigation_item {{#is_current}}selected{{/is_current}}">
-                    <a href="{{url}}">
-                        {{label}}
-                    </a>
-                </li>
-                {{/navigation}}
-
-                <li id="about_link" class="store_link {{#about_page}}selected{{/about_page}}">
-                    <a href="{{store_url}}/about">
-                        <i class="icon-info-sign"></i> &nbsp;{{#lang}}About{{/lang}}
-                    </a>
-                </li>
-
-                {{#store_blog_url}}
-                <li id="blog_link" class="store_link">
-                    <a href="{{store_blog_url}}" target="_blank">
-                        <i class="icon-globe"></i> &nbsp;{{#lang}}Blog{{/lang}}
-                    </a>
-                </li>
-                {{/store_blog_url}}
-
-                <li class="search_item">
-                    {{{search}}}
-                </li>
-            </ul>
+              <li class="search_item">
+                  {{{search}}}
+              </li>
+          </ul>
         </nav>
+        <!-- / .nav-primary -->
 
         {{#navigation}}
-            {{#is_current}}
-                {{#has_children}}
-                    <nav class="sub_navigation">
-                        <ul>
-                            {{#children}}
-                                <li {{#is_current}} class="selected"{{/is_current}}>
-                                    <a href="{{url}}">
-                                        {{label}}
-                                    </a>
-                                </li>
-                            {{/children}}
-                        </ul>
-                    </nav>
-                {{/has_children}}
-            {{/is_current}}
+          {{#is_current}}
+            {{#has_children}}
+              <nav class="nav-secondary">
+                <ul>
+                  {{#children}}
+                    <li {{#is_current}} class="selected"{{/is_current}}>
+                      <a href="{{url}}">
+                        {{label}}
+                      </a>
+                    </li>
+                  {{/children}}
+                </ul>
+              </nav>
+            {{/has_children}}
+          {{/is_current}}
         {{/navigation}}
+      </div>
+      <!-- / .nav -->
+    </header>
+
+    <section class="intro">
+      <div class="intro__content">
+        <div class="logo-text">
+          <small style="font-size: 48px;">THE</small>
+          KONG
+          <span style="font-size: 48px;">INITIATIVE</span>
+          <br>
+          <span style="font-size: 24px;font-weight: 300">Snowboarding doesn't get bigger.</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="newsletter">
 
     </div>
-</header>
 
-<div class="container">
-    <div id="search_container">
-    </div>
-    <div class="content_container">
-        {{{yield}}}
-    </div>
-</div>
+    <main role="main">
+      {{{yield}}}
+    </main>
 
+    {{> tictail/misc}}
 
-{{> tictail/misc}}
-
-<script src="/assets/dist/application.min.js"></script>
-<script id="theme-builder" src="/theme-builder.js"></script>
-
-</body>
+    <script src="/assets/dist/application.min.js"></script>
+    <script id="theme-builder" src="/theme-builder.js"></script>
+  </body>
 </html>

@@ -3,6 +3,132 @@
 
 @import "../../../vendor/bower_components/normalize-scss/normalize";
 
-body {
-  background: image-url('test-cat.jpg');
+$ds-font-family: 'Titillium Web', sans-serif;
+
+html {
+  background: image-url('snow-footer.jpg') bottom center no-repeat;
+  color: #222;
+  font: 300 100%/1.6 $ds-font-family;
+  padding-bottom: 600px;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+// -----------------------------------------------------------------------------
+// Index page intro
+// -----------------------------------------------------------------------------
+
+.logo-text {
+  font-size: 96px;
+  font-weight: 900;
+  line-height: 1;
+  padding: 60px 0;
+  text-align: center;
+}
+
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.intro {
+  //background: image-url('snow-footer.jpg') bottom center no-repeat;
+  height: 100vh;
+  position: relative;
+}
+
+.intro__content {
+  @include centerer;
+}
+
+.nav {
+  display: none;
+}
+
+.newsletter {
+  background: #111;
+  height: 220px;
+}
+
+// -----------------------------------------------------------------------------
+// Product listing
+// -----------------------------------------------------------------------------
+
+.products {
+
+}
+
+.products__product {
+  padding: 40px;
+  margin-bottom: 160px;
+  text-align: center;
+
+  a {
+    color: #222;
+    display: block;
+    text-decoration: none;
+  }
+
+  &:first-child {
+    background: image-url('boarders-1.jpg') bottom center no-repeat;
+    padding-bottom: 400px;
+    margin-bottom: 100px;
+    &:after {
+      /*
+      display: block;
+      height: 400px;*/
+    }
+  }
+}
+
+.products__product__image {
+  @include transition-property(width);
+  @include transition-duration(.3s);
+  @include transition-timing-function(ease-in);
+  width: 90%;
+  margin: 0 auto;
+
+  .products__product:hover & {
+    width: 100%;
+  }
+}
+
+.products__product__info {
+
+}
+
+.products__product__title {
+  @include transition-property(all);
+  @include transition-duration(.3s);
+  @include transition-timing-function(ease-in);
+  background: image-url('fog.png') top center no-repeat;
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.2;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+
+  .products__product:hover & {
+    margin-top: -100px;
+  }
+}
+
+.products__product__price {
+  @include border-radius(30px);
+  background: #222;
+  color: #fff;
+  display: inline-block;
+  line-height: 30px;
+  padding: 0 14px;
+}
+
+.products__product__out-of-stock {
+
 }
