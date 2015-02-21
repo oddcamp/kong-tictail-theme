@@ -5,11 +5,39 @@
 
 $ds-font-family: 'Titillium Web', sans-serif;
 
+$ds-color-dark: #172F2D;
+$ds-color-yellow: #FEE18A;
+$ds-color-green: #95D0B7;
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+  //@include font-smoothing;
+}
+
 html {
-  background: image-url('snow-footer.jpg') bottom center no-repeat;
-  color: #222;
+  background-color: #B0D6FD;
+  background-image: radial-gradient(rgba(#000, .025) 15%, transparent 16%),
+    radial-gradient(rgba(#000, .025) 15%, transparent 16%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  color: $ds-color-dark;
   font: 300 100%/1.6 $ds-font-family;
-  padding-bottom: 600px;
+  text-rendering: optimizeLegibility;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  padding: 0 40px;
 }
 
 img {
@@ -22,12 +50,10 @@ img {
 // -----------------------------------------------------------------------------
 
 .logo-text {
-  font-size: 96px;
-  font-weight: 900;
-  line-height: 1;
-  padding: 60px 0;
-  text-align: center;
+
 }
+
+
 
 @mixin centerer {
   position: absolute;
@@ -37,13 +63,57 @@ img {
 }
 
 .intro {
-  //background: image-url('snow-footer.jpg') bottom center no-repeat;
   height: 100vh;
+  padding: 80px 40px 40px;
   position: relative;
 }
 
 .intro__content {
   @include centerer;
+  //@include clearfix;
+  width: 100%;
+}
+
+.intro__image {
+  float: left;
+  width: 40%;
+}
+
+.intro__text {
+  float: right;
+  padding-left: 40px;
+  text-align: center;
+  width: 60%;
+  h1 {
+    font-size: 96px;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+    padding: 60px 0 0;
+    text-transform: uppercase;
+
+
+    small {
+      display: inline-block;
+      font-size: 56px;
+      text-shadow: $ds-color-yellow 1px 1px 0, $ds-color-yellow 2px 2px 0, $ds-color-green 3px 3px 0, $ds-color-green 4px 4px 0;
+    }
+
+    strong {
+      //border-bottom: 10px solid $ds-color-green;
+      display: inline-block;
+      font-weight: 900;
+      text-shadow: $ds-color-yellow 1px 1px 0, $ds-color-yellow 2px 2px 0, $ds-color-green 3px 3px 0, $ds-color-green 4px 4px 0, $ds-color-green 5px 5px 0;
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.3;
+    margin: 0;
+
+  }
 }
 
 .nav {
@@ -51,8 +121,7 @@ img {
 }
 
 .newsletter {
-  background: #111;
-  height: 220px;
+
 }
 
 // -----------------------------------------------------------------------------
@@ -64,25 +133,23 @@ img {
 }
 
 .products__product {
-  padding: 40px;
+  @include border-radius(2px);
+  @include box-shadow(0 1px 4px rgba(0, 0, 0, .25));
+  background: #fff;
+  padding: 60px;
   margin-bottom: 160px;
   text-align: center;
 
-  a {
-    color: #222;
-    display: block;
-    text-decoration: none;
+  h2 {
+    color: $ds-color-dark;
+    text-shadow: $ds-color-yellow 1px 1px 0, $ds-color-yellow 2px 2px 0, $ds-color-green 3px 3px 0, $ds-color-green 4px 4px 0;
   }
 
-  &:first-child {
-    background: image-url('boarders-1.jpg') bottom center no-repeat;
-    padding-bottom: 400px;
-    margin-bottom: 100px;
-    &:after {
-      /*
-      display: block;
-      height: 400px;*/
-    }
+  a {
+    color: $ds-color-dark;
+    display: block;
+    text-decoration: none;
+
   }
 }
 
@@ -90,7 +157,10 @@ img {
   @include transition-property(width);
   @include transition-duration(.3s);
   @include transition-timing-function(ease-in);
-  width: 90%;
+
+
+  //padding: 60px;
+  width: 100%;
   margin: 0 auto;
 
   .products__product:hover & {
@@ -106,7 +176,6 @@ img {
   @include transition-property(all);
   @include transition-duration(.3s);
   @include transition-timing-function(ease-in);
-  background: image-url('fog.png') top center no-repeat;
   font-size: 46px;
   font-weight: 900;
   line-height: 1.2;
@@ -116,13 +185,13 @@ img {
   z-index: 10;
 
   .products__product:hover & {
-    margin-top: -100px;
+    //margin-top: -100px;
   }
 }
 
 .products__product__price {
   @include border-radius(30px);
-  background: #222;
+  background: $ds-color-dark;
   color: #fff;
   display: inline-block;
   line-height: 30px;
