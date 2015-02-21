@@ -1,96 +1,78 @@
-# The unofficial Tictail Theme Builder for local developmet
+# The Kong Initiative Tictail theme
 
-We all love Tictail, right? But the ones of us how've built a store theme
-knows that using the online editor sometimes could be a bit limiting. I'm
-pretty sure that their team is working hard on solving this problem. But in
-the meantime, maybe this project can help.
+This is a Sinatra app we use to do local development of the theme for [The Kong Initiative](http://www.konginitiative.com). It speeds up development by downloading your Tictail store data and let's you develop on your local machine instead of being stuck with the code editor on Tictail.
 
-I was asked to build a official theme for Tictail and ended up spending most
-of the time making this project instead.
+Be curious and try it! You'll figure out how things work. If you have any question just open an issue.
 
-### What is it?
-This project basically enables you to build your theme locally on your own 
-computer with your favorite editor, as you normally make websites.
-
-With the CSS in one file and one file for each Mustache template. Great success!
-
-```
-# The important files:
-lib/
-static/
-  dropkick.css
-  style.css
-templates/
-  about_page.mustache
-  layout.mustache
-  list_page.mustache
-  product_page.mustache
-views/
-```
-
-
-### How it works?
-Your Tictail data is downloaded to your local computer, then I've made a 
-small Sinatra app that mimics the official Tictail stores with same routes,
-templates, etc.
+This app is originally a fork of [javve/tictail-theme-builder](https://github.com/javve/tictail-theme-builder) so hats of to [@javve](https://twitter.com/javve) for sharing this in the first place!
+We've improved it by making a lot of changes of the Ruby code. We also made changes to the front end setup to fit how we do things here at [Kollegorna](https://labs.kollegorna.se).
 
 ## Requirements
-* Direnv - http://direnv.net/
 * Ruby
-* Bundler
+* [Direnv](http://direnv.net/)
+* [Bundler](https://rubygems.org/gems/bundler)
+* [Node.js](http://nodejs.org)
 
-### Usage
-
-1. [Downlod this project](http://lol)
-2. Open the terminal, go to the project and install dependencies.
+## Setup locally
+1. Clone repository
+2. Make sure you have  and  installed.
+3. $ bundle install
+4. $ npm install
+5. $ bower install
+6. Set your Tictail credentials to .envrc file,
   ```
-  $ cd tictail-theme-builder
-  $ bundle
+  export TICTAIL_EMAIL=your-tictail@email.com
+  export TICTAIL_PASSWORD=your-tictail-password
   ```
-
-3. Set your Tictail credentials to .envrc file,
+7. Fetch your Tictail store data into `store.json` by this command:
   ```
-  export TICTAIL_EMAIL=javve@coolemail.com
-  export TICTAIL_PASSWORD=supersecret
-  ```
-
-4. Fetch your Tictail store data into `store.json` by this command:
-  ```
-  $ rake fetch <email> <password>
-  
-  # ex: rake fetch javve@coolemail.com supersecret
+  $ rake fetch
   ```
 
-5. Spin up a server with [Rack](http://rack.rubyforge.org/doc/).
+## Serve locally
   ```
-  $ rackup config.ru
-  [2013-08-09 12:29:48] INFO  WEBrick 1.3.1
-  [2013-08-09 12:29:48] INFO  ruby 1.9.3 (2012-02-16) [x86_64-darwin12.2.0]
-  [2013-08-09 12:29:48] INFO  WEBrick::HTTPServer#start: pid=7101 port=9292
+  $ grunt
   ```
-6. Build you theme by changing the files in `/templates`
-7. When you are ready to test your theme at Tictail.com just write this command in the terminal:
-  
+
+Then open [localhost:9292](http://localhost:9292).
+
+## Render Tictail theme
   ```
   $ rake print
   ```
-  *Your theme is now saved to both you __clipboad__ and to __theme.mustache__*.  
-  Great success! Just paste it into the Tictail.com-editor
 
+*Your theme is now saved to both you __clipboad__ and to __theme.mustache__*.
 
-### Warning
-I've implemented many (the ones I needed for my own template), but not all of the tags in the [Tictail documentation](https://tictail.com/docs/templates).
-Feel free to contribute.
+Then go ahead and paste it into the theme editor on Tictail.
 
-As stated above, this is an unofficial project. I can't say how long it will work or promis that it'll stay
-up to date with Tictail.
+## Files
 
-All backend code is really, really ugly. Yes, I mean, really ugly. But it get's the job done, hehe ;)
-
-### Things that differ in the local development vs Tictail.com
-These are converted by `lib/printer.rb`.
 ```
-{{search}} --> {{{serach}}}
+lib/
+```
+All the Ruby code that does the magic of downloading, serving and rendering the theme.
+
+```
+static/
+```
+Assets and and a local development helper (theme-builder.js).
+Compiled CSS and JS goes into `static/assets/dist`.
+
+```
+templates/
+```
+The mustache templates for the actual store pages. And some helper stuff for local development (`templates/tictail/misc.mustache`).
+
+```
+views/
+```
+The Sinatra views…
+
+## Things that differ in the local development vs Tictail.com
+These are converted when you run `$ rake print`.
+
+```
+{{search}} --> {{{search}}}
 {{social_buttons}} --> {{{social_buttons}}}
 {{price_with_currency}} --> {{{price_with_currency}}}
 {{children?}}{{/children}} --> {{#has_children?}}{{/has_children}}
