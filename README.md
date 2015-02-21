@@ -2,10 +2,14 @@
 
 This is a Sinatra app we use to do local development of the theme for [The Kong Initiative](http://www.konginitiative.com). It speeds up development by downloading your Tictail store data and let's you develop on your local machine instead of being stuck with the code editor on Tictail.
 
-Be curious and try it! You'll figure out how things work. If you have any question just open an issue.
+Be curious and try it! If you want to use yourself you'll have to change some stuff. Most likely in the `Gruntfile.js`. You'll figure it out…
+
+Questions? Just [open an issue](https://github.com/kollegorna/kong-tictail-theme/issues).
 
 This app is originally a fork of [javve/tictail-theme-builder](https://github.com/javve/tictail-theme-builder) so hats of to [@javve](https://twitter.com/javve) for sharing this in the first place!
-We've improved it by making a lot of changes of the Ruby code. We also made changes to the front end setup to fit how we do things here at [Kollegorna](https://labs.kollegorna.se).
+We've improved it by making a lot of changes of the Ruby code and some other stuff to make it fit how we do things here at [Kollegorna](https://labs.kollegorna.se).
+
+[The Kong Initiative][http://www.konginitiative.com] is an online store bringing you the widest snowboards around to the EU. We'll give you free shipping, great service and lots of joy.
 
 ## Requirements
 * Ruby
@@ -16,9 +20,9 @@ We've improved it by making a lot of changes of the Ruby code. We also made chan
 ## Setup locally
 1. Clone repository
 2. Make sure you have  and  installed.
-3. $ bundle install
-4. $ npm install
-5. $ bower install
+3. `$ bundle install`
+4. `$ npm install`
+5. `$ bower install`
 6. Set your Tictail credentials to .envrc file,
   ```
   export TICTAIL_EMAIL=your-tictail@email.com
