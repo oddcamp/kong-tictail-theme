@@ -9,7 +9,7 @@ Questions? Just [open an issue](https://github.com/kollegorna/kong-tictail-theme
 This app is originally a fork of [javve/tictail-theme-builder](https://github.com/javve/tictail-theme-builder) so hats of to [@javve](https://twitter.com/javve) for sharing this in the first place!
 We've improved it by making a lot of changes of the Ruby code and some other stuff to make it fit how we do things here at [Kollegorna](https://labs.kollegorna.se).
 
-[The Kong Initiative][http://www.konginitiative.com] is an online store bringing you the widest snowboards around to the EU. We'll give you free shipping, great service and lots of joy.
+[The Kong Initiative](http://www.konginitiative.com) is an online store bringing you the widest snowboards around to the EU. We'll give you free shipping, great service and lots of joy.
 
 ## Requirements
 * Ruby
@@ -23,7 +23,7 @@ We've improved it by making a lot of changes of the Ruby code and some other stu
 3. `$ bundle install`
 4. `$ npm install`
 5. `$ bower install`
-6. Set your Tictail credentials to .envrc file,
+6. Set your Tictail credentials to .envrc file,  
   ```
   export TICTAIL_EMAIL=your-tictail@email.com
   export TICTAIL_PASSWORD=your-tictail-password
