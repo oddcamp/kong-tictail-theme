@@ -25,7 +25,7 @@ We've improved it by making a lot of changes of the Ruby code and some other stu
 5. `$ bower install`
 6. Set your Tictail credentials to .envrc file,  
   ```
-  export TICTAIL_EMAIL=your-tictail@email.com
+  export TICTAIL_EMAIL=your-tictail@email.com  
   export TICTAIL_PASSWORD=your-tictail-password
   ```
 7. Fetch your Tictail store data into `store.json` by this command:
@@ -45,9 +45,9 @@ Then open [localhost:9292](http://localhost:9292).
   $ rake print
   ```
 
-*Your theme is now saved to both you __clipboad__ and to __theme.mustache__*.
+Your theme is now saved to both your __clipboard__ and to __theme.mustache__.
 
-Then go ahead and paste it into the theme editor on Tictail.
+Then go ahead and paste it into the theme editor on Tictail. Win!!!
 
 ## Files
 
