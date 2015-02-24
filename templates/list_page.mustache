@@ -2,32 +2,30 @@
   <main class="products">
     {{#products}}
       <article class="products__product {{#out_of_stock}}products__product--out-of-stock{{/out_of_stock}}" data-id="{{id}}">
-      <div class="foo">
         <a href="{{url}}">
-          <figure class="products__product__image">
+          <figure class="product__image">
               {{#primary_image}}
                   <img src="{{url-2000}}" alt="{{title}}">
               {{/primary_image}}
           </figure>
           <div class="products__product__info">
-              <h2 class="products__product__title">{{title}}</h2>
+              <h2 class="product__title">{{title}}</h2>
 
               {{#in_stock}}
-                <div class="products__product__price">
+                <div class="product__price">
                   {{{price_with_currency}}}
                 </div>
               {{/in_stock}}
 
               {{#out_of_stock}}
-                <h4 class="products__product__out-of-stock">
+                <div class="product__price product__price--out-of-stock">
                   {{#lang}}
                     Out of stock
                   {{/lang}}
-                </h4>
+                </div>
               {{/out_of_stock}}
           </div>
         </a>
-      </div>
       </article>
     {{/products}}
   </main>
