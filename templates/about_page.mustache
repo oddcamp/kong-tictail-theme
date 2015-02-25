@@ -1,28 +1,96 @@
 {{#about_page}}
-    <article class="about_page">
-        <h1>{{#lang}}About{{/lang}}</h1>
+  <header class="about-logo">
+    <h1><a href="/"><img alt="About The Kong Initiative" src="/assets/images/kong2.svg"></a></h1>
+  </header>
 
-        <div class="store_description">
-            {{{store_description}}}
+  <article class="about-page">
+    <div class="hero-text">
+      <h2 class="hero-text__title">
+        <small class="hero-text__small">Our Mission</small><br>
+        <strong class="hero-text__large">Statement</strong>
+      </h2>
+    </div>
 
-            <br /><br />
-            {{#store_email}}
-                <p>
-                    <b><a href="mailto:{{store_email}}">{{#lang}}Email us{{/lang}}</a></b>
-                </p>
-            {{/store_email}}
+    <div class="about-page__content">
+      <p>At some dark moment in the last two decades, Hobbits took over snowboarding. There are tons of different board brands and models on the market, but only as long as you have small, dainty feet. Only a few brands make boards fit for big, burly, large-footed riders. In Europe it has been virtually impossible to get your ham-sized hands on these boards, since no shops stock them.</p>
 
-            <p>
-                <small>
-                {{#return_policy}}
-                    {{#lang}}Return Policy{{/lang}}
-                {{/return_policy}}
-                &nbsp; &nbsp;
-                {{#terms}}
-                    {{#lang}}Terms &amp; Conditions{{/lang}}
-                {{/terms}}
-            </small>
-            </p>
-        </div>
-    </article>
+      <p>The Kong Initiative aims to change that. We specialize solely in the widest boards on the market. The ones you crave but which are near impossible to find in shops.</p>
+    </div>
+
+    <div class="hero-text">
+      <h2 class="hero-text__title">
+        <small class="hero-text__small">Who is behind</small><br>
+        <strong class="hero-text__large">all this?</strong>
+      </h2>
+    </div>
+
+    <div class="about-page__content">
+      <p>The Kong Initiative is an off-shoot of web development agency <a href="https://www.kollegorna.se">Kollegorna</a>, based in Stockholm, Sweden.</p>
+    </div>
+
+    <div class="hero-text">
+      <h2 class="hero-text__title">
+        <small class="hero-text__small">Customer</small><br>
+        <strong class="hero-text__large">support</strong>
+      </h2>
+    </div>
+
+    <div class="about-page__content">
+      <p>We love you and will help you!</p>
+      <p>Email us and we'll get back to you in a jiffy!</p>
+      <p><a href="mailto:kong@konginitiative.com">kong@konginitiative.com</a></p>
+    </div>
+
+    <div class="hero-text">
+      <h2 class="hero-text__title">
+        <small class="hero-text__small">Follow</small><br>
+        <strong class="hero-text__large">Kong</strong>
+      </h2>
+    </div>
+
+    <div class="about-page__content">
+      <p>Monkey chatter!!!</p>
+
+      <p>
+        Twitter: <a href="https://twitter.com/konginitiative">@konginitiative</a><br>
+        Instagram: <a href="https://instagram.com/konginitiative">@konginitiative</a><br>
+      </p>
+    </div>
+
+    <div class="hero-text">
+      <h2 class="hero-text__title">
+        <small class="hero-text__small">Kong says</small><br>
+        <strong class="hero-text__large">thank you</strong>
+      </h2>
+    </div>
+
+    <div class="about-page__content">
+      <p>Some special greetings to:</p>
+
+      <ul>
+        <li>You! You're an awesome person!</li>
+        <li><a href="http://wwf.panda.org/what_we_do/endangered_species/great_apes/gorillas/save_solutions_gorillas/">WWF</a>, <a href="https://give.bornfree.org.uk/products/adopt-chimanuka-and-mugaruka-the-gorillas-258?gclid=CKvy1YfS_cMCFaLOcgodMm8A2g">Born Free</a>, <a href="http://www.wcs.org/saving-wildlife/great-apes/mountain-gorilla.aspx">Wildlife Conservation Society</a> and all other organizations who fights for all gorillas.</li>
+        <li>Deka Sepdian for the top class illustrations. You work with him now! Kong most definitely approves.</li>
+      </ul>
+    </div>
+
+    <div class="hero-text">
+      <h2 class="hero-text__title">
+        <small class="hero-text__small">Let's stay in</small><br>
+        <strong class="hero-text__large">touch</strong>
+      </h2>
+    </div>
+
+
+
+    <div class="product__terms">
+      {{#return_policy}}
+        {{#lang}}Return Policy{{/lang}}
+      {{/return_policy}}
+
+      {{#terms}}
+        {{#lang}}Terms &amp; Conditions{{/lang}}
+      {{/terms}}
+    </div>
+  </article>
 {{/about_page}}

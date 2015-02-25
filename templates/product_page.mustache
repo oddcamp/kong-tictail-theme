@@ -1,4 +1,8 @@
 {{#product_page}}
+    <header class="logo">
+      <a href="/"><img src="/assets/images/kong.svg"></a>
+    </header>
+
     <article class="product" itemscope itemtype="http://schema.org/Product">
         {{#product}}
 
@@ -21,49 +25,45 @@
               {{/out_of_stock}}
           </div>
 
+          <div class="product__description" itemprop="description">
+            {{{description}}}
+          </div>
 
-            <section class="details_container">
-                <div class="inner_container">
-
-
-
-
-                    <div class="description html_content" itemprop="description">
-                        {{{description}}}
-                    </div>
-
-                    {{! The #add_to_cart block is only rendered if the product is in stock }}
-                    {{#add_to_cart}}
-                        <div class="variations_container">
-                            {{#variations_select}}{{/variations_select}}
-                        </div>
-                        <div class="add_to_cart">
-                            {{#add_to_cart_button}}
-                                {{#lang}}Add to cart{{/lang}}
-                            {{/add_to_cart_button}}
-                        </div>
-                    {{/add_to_cart}}
-
-                    {{! This block will be rendered instead of the #add_to_cart block when the product is out of stock }}
-                    {{#out_of_stock}}
-                    <div class="out_of_stock">
-                        {{#lang}}This product is out of stock{{/lang}}
-                    </div>
-                    {{/out_of_stock}}
-
-                    <div class="terms">
-                        {{#return_policy}}
-                            {{#lang}}Return Policy{{/lang}}
-                        {{/return_policy}}
-                        &nbsp; &nbsp;
-                        {{#terms}}
-                            {{#lang}}Terms &amp; Conditions{{/lang}}
-                        {{/terms}}
-                    </div>
-
-                    {{{social_buttons}}}
+          <div class="product__actions">
+            {{! The #add_to_cart block is only rendered if the product is in stock }}
+            {{#add_to_cart}}
+                <!--<div class="variations_container">
+                    {{#variations_select}}{{/variations_select}}
+                </div>-->
+                <div class="product__add-to-cart">
+                    {{#add_to_cart_button}}
+                        {{#lang}}Add to cart{{/lang}}
+                    {{/add_to_cart_button}}
                 </div>
-            </section>
+            {{/add_to_cart}}
+
+            {{! This block will be rendered instead of the #add_to_cart block when the product is out of stock }}
+            {{#out_of_stock}}
+            <div class="product__out-of-stock">
+                {{#lang}}This product is out of stock{{/lang}}
+            </div>
+            {{/out_of_stock}}
+          </div>
+          <!-- / .product__actions -->
+
+          <div class="product__terms">
+            {{#return_policy}}
+              {{#lang}}Return Policy{{/lang}}
+            {{/return_policy}}
+
+            {{#terms}}
+              {{#lang}}Terms &amp; Conditions{{/lang}}
+            {{/terms}}
+
+            <a href="/about">
+              {{#lang}}About us{{/lang}}
+            </a>
+          </div>
         </div>
         {{/product}}
     </article>
