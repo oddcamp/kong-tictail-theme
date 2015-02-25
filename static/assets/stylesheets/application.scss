@@ -53,8 +53,6 @@ img {
 
 }
 
-
-
 @mixin centerer {
   position: absolute;
   top: 50%;
@@ -63,30 +61,45 @@ img {
 }
 
 .intro {
-  height: 100vh;
-  padding: 80px 40px 40px;
+  padding: 50px 0;
   position: relative;
+
+  .hero-text__small,
+  .hero-text__large {
+    display: block;
+  }
+
+  @media (min-width: 1024px) {
+    height: 100vh;
+    padding: 80px 40px 40px;
+  }
 }
 
 .intro__content {
-  @include centerer;
-  //@include clearfix;
-  width: 100%;
+  @media (min-width: 1024px) {
+    @include centerer;
+    width: 100%;
+  }
 }
 
 .intro__image {
-  float: left;
-  width: 40%;
+  @media (min-width: 480px) {
+    float: left;
+    width: 40%;
+  }
 }
 
 .intro__text {
-  float: right;
-  padding-left: 40px;
   text-align: center;
-  width: 60%;
 
-  h1 {
-    padding: 60px 0 0;
+  @media (min-width: 1024px) {
+    float: right;
+    padding-left: 40px;
+    width: 60%;
+
+    h1 {
+      padding: 60px 0 0;
+    }
   }
 }
 
@@ -316,14 +329,14 @@ img {
     background: rgba($ds-color-dark, .5);
     border-radius: 50%;
     display: inline-block;
-    height: 180px;
-    line-height: 180px;
+    height: 260px;
+    line-height: 260px;
     text-align: center;
-    width: 180px;
+    width: 260px;
   }
 
   img {
-    max-width: 160px;
+    max-width: 240px;
   }
 }
 
