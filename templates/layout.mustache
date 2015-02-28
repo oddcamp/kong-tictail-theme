@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <title>
-      {{store_name}}
       {{! Add the label of the current navigation item on list pages }}
       {{#list_page}}{{#navigation}}{{#is_current}}- {{label}}{{/is_current}}{{/navigation}}{{/list_page}}
       {{! Add the product title on product pages }}
-      {{#product_page}}{{#product}}- {{title}}{{/product}}{{/product_page}}
+      {{#product_page}}{{#product}}{{title}} | {{/product}}{{/product_page}}
       {{! Add "About" on the about page }}
-      {{#about_page}}- {{#lang}}About{{/lang}}{{/about_page}}
+      {{#about_page}}{{#lang}}About{{/lang}} | {{/about_page}}
+
+      {{store_name}}
     </title>
 
     <meta name="viewport" content="width=device-width">
@@ -112,6 +113,22 @@
     <main role="main">
       {{{yield}}}
     </main>
+
+    <footer class="footer" role="contentinfo">
+      <a href="/about">
+        {{#lang}}About us{{/lang}}
+      </a>
+
+      <br>
+
+      {{#return_policy}}
+        {{#lang}}Returns{{/lang}}
+      {{/return_policy}}
+
+      {{#terms}}
+        {{#lang}}Terms{{/lang}}
+      {{/terms}}
+    </footer>
 
     {{> tictail/misc}}
 
