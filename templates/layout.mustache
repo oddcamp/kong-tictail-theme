@@ -100,15 +100,28 @@
         </div>
       </div>
     </section>
+
+    <div class="specials">
+      <div class="newsletter">
+        <form action="//kollegorna.us1.list-manage.com/subscribe/post?u=849a51f69c41c923729de379e&amp;id=e510852ce6" class="newsletter__form" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+          <h2 class="newsletter__title">News and offers!</h2>
+
+          <input type="email" value="" name="EMAIL" class="newsletter__email" placeholder="Your email" id="mce-EMAIL">
+
+          <div style="position: absolute; left: -5000px;"><input type="text" name="b_849a51f69c41c923729de379e_e510852ce6" tabindex="-1" value=""></div>
+
+          <button class="newsletter__submit" type="submit">Subscribe</button>
+          <label class="newsletter__status" for="mce-EMAIL"></label>
+
+        </form>
+      </div>
+    </div>
+
     {{/on_index}}
 
     {{^on_index}}
 
     {{/on_index}}
-
-    <div class="newsletter">
-
-    </div>
 
     <main role="main">
       {{{yield}}}
@@ -130,7 +143,7 @@
       {{/terms}}
     </footer>
 
-    {{> tictail/misc}}
+    <!-- {{> tictail/misc}} -->
 
     <script src="/assets/dist/application.min.js"></script>
     <script id="theme-builder" src="/theme-builder.js"></script>

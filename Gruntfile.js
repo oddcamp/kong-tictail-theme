@@ -9,6 +9,7 @@ grunt.initConfig({
         'vendor/bower_components/modernizr/modernizr.js',
         'vendor/bower_components/jquery/dist/jquery.js',
         'vendor/bower_components/velocity/velocity.min.js',
+        'vendor/bower_components/ajaxchimp/jquery.ajaxchimp.min.js',
         'static/assets/javascripts/*.js'
       ],
       dest: 'static/assets/dist/application.js'

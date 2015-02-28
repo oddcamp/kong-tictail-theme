@@ -23,5 +23,14 @@ Modernizr.addTest('hires', function() {
 
 
 $(function() {
+  $('.newsletter form').ajaxChimp({
+      //callback: newsletterCallback
+  });
 
+  function newsletterCallback (resp) {
+    if (resp.result === 'success') {
+      // Do stuff
+
+    }
+  }
 });

@@ -24,8 +24,11 @@
       </h2>
     </div>
 
-    <div class="about-page__content">
-      <p>The Kong Initiative is an off-shoot of web development agency <a href="https://www.kollegorna.se">Kollegorna</a>, based in Stockholm, Sweden.</p>
+    <div class="about-page__content about-page__kollegorna">
+      <p>The Kong Initiative is an off-shoot of the web agency <a href="https://www.kollegorna.se">Kollegorna</a>.<br>We have our roots in Stockholm, Sweden.</p>
+      <div class="about-page__kollegorna__k">
+        <a href="https://www.kollegorna.se"><img src="/assets/images/kollegorna-k.svg" alt="Kollegorna"></a>
+      </div>
     </div>
 
     <div class="hero-text">
@@ -35,10 +38,9 @@
       </h2>
     </div>
 
-    <div class="about-page__content">
-      <p>We love you and will help you!</p>
-      <p>Email us and we'll get back to you in a jiffy!</p>
-      <p><a href="mailto:kong@konginitiative.com">kong@konginitiative.com</a></p>
+    <div class="about-page__content about-page__support">
+      <p>Shoot of an email and you'll get all the help you need.</p>
+      <p><a href="mailto:support@konginitiative.com">support@konginitiative.com</a></p>
     </div>
 
     <div class="hero-text">
@@ -48,13 +50,45 @@
       </h2>
     </div>
 
-    <div class="about-page__content">
-      <p>Monkey chatter!!!</p>
+    <div class="about-page__content about-page__follow">
+      <p>Read the blog:</p>
 
-      <p>
-        Twitter: <a href="https://twitter.com/konginitiative">@konginitiative</a><br>
-        Instagram: <a href="https://instagram.com/konginitiative">@konginitiative</a><br>
-      </p>
+      <ul>
+        <li>
+          <a href="http://blog.konginitiative.com"><img src="/assets/images/social/tumblr.svg"></a>
+        </li>
+      </ul>
+
+      <p>Socialize…</p>
+
+      <ul>
+        <li>
+          <a href="https://www.facebook.com/konginitiative"><img src="/assets/images/social/facebook.svg"></a>
+        </li>
+        <li>
+          <a href="https://twitter.com/konginitiative"><img src="/assets/images/social/twitter.svg"></a>
+        </li>
+        <li>
+          <a href="https://instagram.com/konginitiative"><img src="/assets/images/social/instagram.svg"></a>
+        </li>
+        <li>
+          <a href="https://pinterest.com/konginitiative"><img src="/assets/images/social/pinterest.svg"></a>
+        </li>
+      </ul>
+
+      <div class="newsletter">
+        <form action="//kollegorna.us1.list-manage.com/subscribe/post?u=849a51f69c41c923729de379e&amp;id=e510852ce6" class="newsletter__form" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+          <h2 class="newsletter__title">News and offers!</h2>
+
+          <input type="email" value="" name="EMAIL" class="newsletter__email" placeholder="Your email" id="mce-EMAIL">
+
+          <div style="position: absolute; left: -5000px;"><input type="text" name="b_849a51f69c41c923729de379e_e510852ce6" tabindex="-1" value=""></div>
+
+          <button class="newsletter__submit" type="submit">Subscribe</button>
+          <label class="newsletter__status" for="mce-EMAIL"></label>
+
+        </form>
+      </div>
     </div>
 
     <div class="hero-text">
@@ -76,21 +110,14 @@
 
     <div class="hero-text">
       <h2 class="hero-text__title">
-        <small class="hero-text__small">Let's stay in</small><br>
-        <strong class="hero-text__large">touch</strong>
+        <small class="hero-text__small">Always</small><br>
+        <strong class="hero-text__large">remember</strong>
       </h2>
     </div>
 
-
-
-    <div class="product__terms">
-      {{#return_policy}}
-        {{#lang}}Return Policy{{/lang}}
-      {{/return_policy}}
-
-      {{#terms}}
-        {{#lang}}Terms &amp; Conditions{{/lang}}
-      {{/terms}}
+    <div class="about-page__content about-page__remember">
+      <p>Kong cares.</p>
+      <p>Kong loves you.</p>
     </div>
   </article>
 {{/about_page}}

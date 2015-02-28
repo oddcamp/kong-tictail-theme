@@ -58,8 +58,12 @@ body {
 }
 
 img {
+  border: 0;
+  display: inline-block;
   height: auto;
   max-width: 100%;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic;
 }
 
 // -----------------------------------------------------------------------------
@@ -98,10 +102,6 @@ img {
 // -----------------------------------------------------------------------------
 // Index page intro
 // -----------------------------------------------------------------------------
-
-.logo-text {
-
-}
 
 @mixin centerer {
   position: absolute;
@@ -168,13 +168,15 @@ img {
   }
 }
 
+.specials {
+  margin-bottom: 100px;
+}
+
 .nav {
   display: none;
 }
 
-.newsletter {
 
-}
 
 .logo {
   padding: 60px 0;
@@ -183,6 +185,59 @@ img {
   img {
     max-width: 160px;
   }
+}
+
+.t-center {
+  text-align: center;
+}
+
+.newsletter {
+  background: $ds-color-dark;
+  box-shadow: $ds-color-yellow -3px 3px 0, $ds-color-green 3px -3px 0;
+  color: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px 30px 30px;
+  text-align: center;
+}
+
+.newsletter__title {
+  color: $ds-color-yellow;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.newsletter__email {
+  @include border-radius(1px);
+  background: #fff;
+  border: 0;
+  color: $ds-color-dark;
+  display: inline-block;
+  font-family: inherit;
+  line-height: 30px;
+  margin: 0 10px;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.newsletter__submit {
+  @include border-radius(15px);
+  background: $ds-color-yellow;
+  border: 0;
+  color: $ds-color-dark;
+  display: inline-block;
+  line-height: 30px;
+  margin: 0 10px;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+
+.newsletter__status {
+  color: #fff;
+  display: block;
 }
 
 // -----------------------------------------------------------------------------
@@ -211,6 +266,11 @@ img {
   line-height: 1.3;
   margin: 0;
   padding: 20px 0 0;
+
+  a {
+    color: $ds-color-dark;
+    font-weight: 700;
+  }
 
   @include breakpoint($ds-bp-medium) {
     font-size: 24px;
@@ -507,6 +567,67 @@ img {
 .about-page__content {
   max-width: 600px;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 20px 0 40px;
   text-align: left;
+
+  a {
+    color: $ds-color-dark;
+    display: inline-block;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  @include breakpoint($ds-bp-medium) {
+    padding: 30px 0 60px;
+  }
+}
+
+.about-page__kollegorna,
+.about-page__support,
+.about-page__follow,
+.about-page__remember {
+  text-align: center;
+}
+
+.about-page__kollegorna__k {
+  padding-top: 10px;
+  img {
+    max-width: 120px;
+  }
+}
+
+.about-page__follow {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    @include border-radius(50%);
+    background: $ds-color-dark;
+    box-shadow: $ds-color-yellow 1px 1px 0, $ds-color-green 2px 2px 0;
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    width: 60px;
+
+    img {
+      max-width: 20px;
+    }
+  }
+
+  .newsletter {
+    margin-top: 30px;
+  }
 }
