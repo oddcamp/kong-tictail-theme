@@ -40,6 +40,7 @@ module Tictail
                     sub(/\<script id=\"theme-builder\" src=\"\/theme-builder.js\"\>\<\/script\>/, '').
                     sub(/\<script src=\"\/assets\/dist\/application.min.js\"\>\<\/script\>/, '<script src="//cdn.konginitiative.com/assets/dist/application.min.js"></script>').
                     sub(/\<link href=\"\/assets\/dist\/application\.css\" rel=\"stylesheet\" type=\"text\/css\"\>/, '<link rel="stylesheet" type="text/css" href="//cdn.konginitiative.com/assets/dist/application.css">').
+                    sub(/\<link href=\"\/assets\/images/, '<link href="//cdn.konginitiative.com/assets/images').
                     sub(/\<img src=\"\/assets/, '<img src="//cdn.konginitiative.com/assets').
                     sub(/\{\{\> tictail\/misc\}\}/, '').
                     gsub(/\{\{#has_children\}\}/, '{{#children?}}').
