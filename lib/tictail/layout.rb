@@ -11,9 +11,7 @@ module Tictail
     def about_page
       page = File.read("./templates/about_page.mustache")
 
-      page.sub(/\{\{\{price_with_currency\}\}\}/, '{{price_with_currency}}').
-           sub(/\<img src=\"\/assets/, '<img src="//cdn.konginitiative.com/assets').
-           sub(/\{\{\{store_description\}\}\}/, '{{store_description}}')
+      page.sub(/\<img src=\"\/assets/, '<img src="//cdn.konginitiative.com/assets')
     end
 
     # @return [String]
