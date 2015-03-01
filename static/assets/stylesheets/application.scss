@@ -499,6 +499,7 @@ img {
   padding-top: 30px;
 
   a {
+    @include bounce-in;
     @include border-radius(20px);
     box-shadow: $ds-color-yellow 1px 1px 0, $ds-color-yellow 2px 2px 0, $ds-color-yellow 3px 3px 0, $ds-color-green 4px 4px 0, $ds-color-green 5px 5px 0, $ds-color-green 6px 6px 0;
     background: $ds-color-dark;
