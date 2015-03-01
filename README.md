@@ -83,3 +83,11 @@ These are converted when you run `$ rake print`.
 {{store_description}}--> {{{store_description}}}
 {{description}}--> {{{description}}}
 ```
+
+
+## License
+
+All code but the files listed in the folders below is licensed under the MIT License.
+
+- /static/assets
+
