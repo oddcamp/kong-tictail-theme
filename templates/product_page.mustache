@@ -1,10 +1,11 @@
 {{#product_page}}
     <header class="logo">
-      <a href="/"><img src="/assets/images/kong.svg"></a>
+      <a href="/"><img src="/assets/images/kong-logo-bg.svg"></a>
     </header>
 
-    <article class="product" itemscope itemtype="http://schema.org/Product">
+
         {{#product}}
+        <article class="product" itemscope itemtype="http://schema.org/Product" data-id="{{id}}">
 
           <figure class="product__image">
             <!--{{#slideshow-500}}{{/slideshow-500}}-->
@@ -70,7 +71,8 @@
           </div>
           <!-- / .product__actions -->
         </div>
+        </article>
         {{/product}}
-    </article>
+
 
 {{/product_page}}
