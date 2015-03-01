@@ -8,7 +8,7 @@ grunt.initConfig({
       src: [
         'vendor/bower_components/modernizr/modernizr.js',
         'vendor/bower_components/jquery/dist/jquery.js',
-        'vendor/bower_components/velocity/velocity.min.js',
+        'vendor/bower_components/ajaxchimp/jquery.ajaxchimp.min.js',
         'static/assets/javascripts/*.js'
       ],
       dest: 'static/assets/dist/application.js'
@@ -53,7 +53,7 @@ grunt.initConfig({
       cmd: 'bundle exec compass compile'
     },
     deploy: {
-      cmd: "rsync -avz --delete --exclude 'stylesheets' --exclude 'javascripts' --exclude '.git*' --exclude '.DS_Store' --exclude '.sass-cache*' static/assets/ root@178.62.13.136:/var/www/cdn.konginitiative.com/static/assets/"
+      cmd: "rsync -avz --delete --exclude 'stylesheets' --exclude 'javascripts' --exclude '.git*' --exclude '.DS_Store' --exclude '.sass-cache*' static/assets/ root@178.62.13.136:/var/www/cdn.konginitiative.com/assets/"
     },
     print: {
       cmd: 'bundle exec rake print'

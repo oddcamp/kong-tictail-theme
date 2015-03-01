@@ -1,34 +1,72 @@
 {{#list_page}}
-  <main class="products">
+  {{#on_index}}
+    <section class="intro">
+      <div class="intro__content">
+
+        <div class="intro__image">
+          <img src="/assets/images/kong-logo-bg.svg">
+        </div>
+
+        <div class="intro__text hero-text">
+          <h1 class="hero-text__title">
+            <small class="hero-text__small">The</small>
+            <strong class="hero-text__large">Kong</strong>
+            <small class="hero-text__small">Initiative</small>
+          </h1>
+          <h2 class="hero-text__subtitle">
+            Bringing you the widest snowboards around
+            <br>
+            Free shipping in the EU!
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <div class="specials">
+      <div class="newsletter">
+        <form action="//kollegorna.us1.list-manage.com/subscribe/post?u=849a51f69c41c923729de379e&amp;id=e510852ce6" class="newsletter__form" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+          <h2 class="newsletter__title">News and offers!</h2>
+
+          <input type="email" value="" name="EMAIL" class="newsletter__email" placeholder="Your email" id="mce-EMAIL">
+
+          <div style="position: absolute; left: -5000px;"><input type="text" name="b_849a51f69c41c923729de379e_e510852ce6" tabindex="-1" value=""></div>
+
+          <button class="newsletter__submit" type="submit">Subscribe</button>
+          <label class="newsletter__status" for="mce-EMAIL"></label>
+
+        </form>
+      </div>
+    </div>
+  {{/on_index}}
+
+  <section class="products">
     {{#products}}
       <article class="products__product {{#out_of_stock}}products__product--out-of-stock{{/out_of_stock}}" data-id="{{id}}">
-      <div class="foo">
         <a href="{{url}}">
-          <figure class="products__product__image">
+          <figure class="product__image">
               {{#primary_image}}
                   <img src="{{url-2000}}" alt="{{title}}">
               {{/primary_image}}
           </figure>
           <div class="products__product__info">
-              <h2 class="products__product__title">{{title}}</h2>
+              <h2 class="product__title">{{title}}</h2>
 
               {{#in_stock}}
-                <div class="products__product__price">
+                <div class="product__price">
                   {{{price_with_currency}}}
                 </div>
               {{/in_stock}}
 
               {{#out_of_stock}}
-                <h4 class="products__product__out-of-stock">
+                <div class="product__price product__price--out-of-stock">
                   {{#lang}}
                     Out of stock
                   {{/lang}}
-                </h4>
+                </div>
               {{/out_of_stock}}
           </div>
         </a>
-      </div>
       </article>
     {{/products}}
-  </main>
+  </section>
 {{/list_page}}

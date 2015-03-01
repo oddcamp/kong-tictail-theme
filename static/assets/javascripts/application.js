@@ -21,7 +21,23 @@ Modernizr.addTest('hires', function() {
   return !!(dpr > 1);
 });
 
-
 $(function() {
+  $('.newsletter form').ajaxChimp();
 
+  // Scroll the title like it's 1999!
+  // Credits: http://stackoverflow.com/a/16354191
+  var original_title = document.title;
+  $(".no-touch .products__product, .no-touch .product__add-to-cart button").hover(
+    function() {
+      (function titleScroller(text) {
+        document.title = text;
+        titleScroll = setTimeout(function () {
+            titleScroller(text.substr(1) + text.substr(0, 1));
+        }, 100);
+      }(" BUY NOW BUY NOW BUY NOW BUY NOW"));
+    }, function() {
+      document.title = original_title;
+      clearTimeout(titleScroll);
+    }
+  );
 });
