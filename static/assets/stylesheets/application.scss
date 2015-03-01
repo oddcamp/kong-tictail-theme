@@ -3,6 +3,9 @@
 
 @import "../../../vendor/bower_components/normalize-scss/normalize";
 
+@import "../../../vendor/bower_components/animate.css-scss/_properties";
+@import "../../../vendor/bower_components/animate.css-scss/_bouncing-entrances/bouncing-entrances.scss";
+
 $ds-font-family: 'Titillium Web', sans-serif;
 
 $ds-color-dark: #172F2D;
@@ -44,7 +47,6 @@ body {
 
 body {
   background: url('/assets/images/footer-bg.svg') bottom center no-repeat;
-  padding-bottom: 400px;
 
   @include breakpoint($ds-bp-medium) {
     padding-left: 30px;
@@ -73,8 +75,22 @@ img {
 
 .footer {
   clear: both;
-  padding: 200px 0 0;
+  padding-top: 200px;
+  padding-bottom: 400px;
   text-align: center;
+
+  @include breakpoint($ds-bp-medium) {
+    @include clearfix;
+    padding-bottom: 210px;
+    text-align: left;
+  }
+}
+
+.footer__links {
+  @include breakpoint($ds-bp-medium) {
+    float: left;
+    width: 50%;
+  }
 
   a {
     @include border-radius(15px);
@@ -90,12 +106,41 @@ img {
     text-transform: uppercase;
 
     &:first-child {
-      margin-right: 0;
+      //margin-right: 0;
     }
 
     &:last-child {
       margin-right: 0;
     }
+  }
+}
+
+.footer__info {
+  @include breakpoint($ds-bp-medium) {
+    float: right;
+    text-align: right;
+    width: 50%;
+  }
+}
+
+.footer__disclaimer {
+  @include breakpoint($ds-bp-medium) {
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: text-top;
+  }
+}
+
+.footer__logos {
+  position: relative;
+
+  img {
+    height: 20px;
+    width: auto;
+  }
+
+  @include breakpoint($ds-bp-medium) {
+    display: inline-block;
   }
 }
 
@@ -111,6 +156,7 @@ img {
 }
 
 .intro {
+  @include bounceInDown();
   padding: 50px 0;
   position: relative;
 
@@ -126,6 +172,10 @@ img {
 }
 
 .intro__content {
+  .js & {
+    //display: none;
+  }
+
   padding: 0 20px;
   text-align: center;
 

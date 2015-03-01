@@ -21,7 +21,6 @@ Modernizr.addTest('hires', function() {
   return !!(dpr > 1);
 });
 
-
 $(function() {
   $('.newsletter form').ajaxChimp();
 });

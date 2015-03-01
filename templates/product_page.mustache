@@ -7,7 +7,10 @@
         {{#product}}
 
           <figure class="product__image">
-              {{#slideshow-500}}{{/slideshow-500}}
+            <!--{{#slideshow-500}}{{/slideshow-500}}-->
+            {{#primary_image}}
+              <img src="{{url-2000}}" alt="{{title}}">
+            {{/primary_image}}
           </figure>
 
           <h1 class="product__title" itemprop="name">{{title}}</h1>
