@@ -18,10 +18,22 @@
               {{! This is meta data for search engines etc. }}
               <meta itemprop="priceCurrency" content="{{currency_code}}">
               {{#in_stock}}
-              <link itemprop="availability" href="http://schema.org/InStock">
+                <link itemprop="availability" href="http://schema.org/InStock">
+
+
+                {{#klarna?}}
+                  <div class="product__klarna">
+                    {{#klarna}}
+                      <a href="https://online.klarna.com/account_se.yaws?eid=29294" onClick="MyWindow=window.open(this.href,'MyWindow','width=600,height=420'); return false;">
+                        Part pay from {{price}} SEK per month
+                      </a>
+                    {{/klarna}}
+                  </div>
+                {{/klarna?}}
               {{/in_stock}}
+
               {{#out_of_stock}}
-              <link itemprop="availability" href="http://schema.org/OutOfStock">
+                <link itemprop="availability" href="http://schema.org/OutOfStock">
               {{/out_of_stock}}
           </div>
 

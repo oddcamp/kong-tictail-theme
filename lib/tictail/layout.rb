@@ -1,7 +1,7 @@
 module Tictail
   class Layout
     attr_reader :content
-    
+
     def initialize
       pages = about_page + list_page + product_page
       @content = layout.sub(/\{\{\{yield\}\}\}/, pages)
@@ -39,6 +39,7 @@ module Tictail
                     sub(/\<script id=\"theme-builder\" src=\"\/theme-builder.js\"\>\<\/script\>/, '').
                     sub(/\<script src=\"\/assets\/dist\/application.min.js\"\>\<\/script\>/, '<script src="//cdn.konginitiative.com/static/assets/dist/application.min.js"></script>').
                     sub(/\<link href=\"\/assets\/dist\/application\.css\" rel=\"stylesheet\" type=\"text\/css\"\>/, '<link rel="stylesheet" type="text/css" href="//cdn.konginitiative.com/static/assets/dist/application.css">').
+                    sub(/\<img src=\"\/assets/, '<img src="//cdn.konginitiative.com/static/assets').
                     sub(/\{\{\> tictail\/misc\}\}/, '').
                     gsub(/\{\{#has_children\}\}/, '{{#children?}}').
                     gsub(/\{\{\/has_children\}\}/, '{{/children?}}')
