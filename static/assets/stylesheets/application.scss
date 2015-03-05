@@ -232,15 +232,17 @@ img {
 }
 
 .intro__image {
-  @include breakpoint($ds-bp-small) {
+  @include breakpoint($ds-bp-medium) {
     float: left;
     width: 40%;
   }
 
   img {
+    margin-bottom: 30px;
     max-width: 60%;
 
     @include breakpoint($ds-bp-medium) {
+      margin-bottom: 0;
       max-width: 100%;
     }
   }
