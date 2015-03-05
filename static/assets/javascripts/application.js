@@ -1,15 +1,6 @@
 $(function() {
   // Mailchimp newsletter
-  $('.newsletter form').ajaxChimp({
-    callback: kongAjaxChimpCallback
-  });
-  function kongAjaxChimpCallback() {
-    if (resp.result === 'success') {
-      mixpanel.track("Subscribed to newsletter");
-    } else {
-      mixpanel.track("Newsletter subscription failed");
-    }
-  }
+  $('.newsletter form').ajaxChimp();
 
   // Scroll the title like it's 1999!
   // Credits: http://stackoverflow.com/a/16354191
