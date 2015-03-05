@@ -22,7 +22,18 @@ Modernizr.addTest('hires', function() {
 });
 
 $(function() {
-  $('.newsletter form').ajaxChimp();
+  $('.newsletter form').ajaxChimp({
+    callback: kongAjaxChimpCallback
+  });
+
+  function kongAjaxChimpCallback() {
+    if (resp.result === 'success') {
+      mixpanel.track(
+      "Subscribed to newsletter",
+        { "Name": social_link }
+      );
+    }
+  }
 
   // Scroll the title like it's 1999!
   // Credits: http://stackoverflow.com/a/16354191

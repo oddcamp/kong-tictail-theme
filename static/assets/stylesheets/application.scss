@@ -23,6 +23,22 @@ $ds-bp-large: 1280px !default;
 $ds-bp-xl: 1440px !default;
 $ds-bp-xxl: 1680px !default;
 
+// --
+// Font smoothing
+// http://maximilianhoffmann.com/posts/better-font-rendering-on-osx
+// --
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+
 *,
 *:before,
 *:after {
@@ -42,7 +58,6 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-html,
 body {
   overflow-x: hidden;
   overflow-y: scroll;
@@ -95,6 +110,7 @@ img {
 
   @media (min-width: 1584px) {
     padding-top: 400px;
+    padding-bottom: 500px;
   }
 }
 
@@ -185,17 +201,14 @@ img {
 // Index page intro
 // -----------------------------------------------------------------------------
 
-@mixin centerer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .intro {
   @include bounceInDown();
   padding: 50px 0;
   position: relative;
+
+  .hero-text {
+    cursor: default;
+  }
 
   .hero-text__small,
   .hero-text__large {
@@ -203,21 +216,17 @@ img {
   }
 
   @media (min-width: 1024px) {
-    height: 100vh;
-    padding: 80px 40px 40px;
+    padding: 80px 40px;
   }
 }
 
 .intro__content {
-  .js & {
-    //display: none;
-  }
+  @include clearfix;
 
   padding: 0 20px;
   text-align: center;
 
   @include breakpoint($ds-bp-medium) {
-    @include centerer;
     width: 100%;
   }
 }
@@ -289,6 +298,7 @@ img {
 }
 
 .newsletter__title {
+  @include font-smoothing;
   color: $ds-color-yellow;
   font-size: 24px;
   font-weight: $ds-font-weight;
@@ -332,7 +342,7 @@ img {
 // -----------------------------------------------------------------------------
 
 .hero-text {
-
+  @include font-smoothing;
 }
 
 .hero-text__title {
@@ -391,7 +401,8 @@ img {
   background-size: cover;
   padding: 20px;
   position: relative;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  max-width: 1400px;
   text-align: center;
   z-index: 100;
 
@@ -434,6 +445,7 @@ img {
 }
 
 .product__title {
+  @include font-smoothing;
   color: $ds-color-dark;
   font-size: 24px;
   font-weight: $ds-font-weight-black;
@@ -516,6 +528,7 @@ img {
 }
 
 .product__add-to-cart button {
+  @include font-smoothing;
   @include bounce-in;
   @include border-radius(20px);
   box-shadow: $ds-color-yellow 1px 1px 0, $ds-color-yellow 2px 2px 0, $ds-color-yellow 3px 3px 0, $ds-color-green 4px 4px 0, $ds-color-green 5px 5px 0, $ds-color-green 6px 6px 0;
@@ -543,6 +556,7 @@ img {
   padding-top: 30px;
 
   a {
+    @include font-smoothing;
     @include bounce-in;
     @include border-radius(20px);
     box-shadow: $ds-color-yellow 1px 1px 0, $ds-color-yellow 2px 2px 0, $ds-color-yellow 3px 3px 0, $ds-color-green 4px 4px 0, $ds-color-green 5px 5px 0, $ds-color-green 6px 6px 0;
