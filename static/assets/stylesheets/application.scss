@@ -17,6 +17,7 @@ $ds-color-dark: #172F2D !default;
 $ds-color-yellow: #FEE18A !default;
 $ds-color-green: #95D0B7 !default;
 
+$ds-bp-smallest: 480px !default;
 $ds-bp-small: 600px !default;
 $ds-bp-medium: 1024px !default;
 $ds-bp-large: 1280px !default;
@@ -255,6 +256,20 @@ img {
     margin-top: -8px;
   }
 
+  h2 {
+    span {
+      display: block;
+    }
+  }
+
+  @include breakpoint($ds-bp-smallest) {
+    h2 {
+      span {
+        display: inline;
+      }
+    }
+  }
+
   @include breakpoint($ds-bp-medium) {
     float: right;
     padding-left: 40px;
@@ -267,14 +282,16 @@ img {
 }
 
 .specials {
-  margin-bottom: 100px;
+  margin-bottom: 40px;
+
+  @include breakpoint($ds-bp-medium) {
+    margin-bottom: 80px;
+  }
+
+  @include breakpoint($ds-bp-large) {
+    margin-bottom: 100px;
+  }
 }
-
-.nav {
-  display: none;
-}
-
-
 
 .logo {
   padding: 60px 0;
@@ -321,9 +338,13 @@ img {
   display: inline-block;
   font-family: inherit;
   line-height: 30px;
-  margin: 0 10px;
+  margin: 0 10px 10px;
   padding: 0 10px;
   text-align: center;
+
+  @include breakpoint($ds-bp-small) {
+    margin-bottom: 0;
+  }
 }
 
 .newsletter__submit {
