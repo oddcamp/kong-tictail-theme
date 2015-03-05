@@ -6,7 +6,7 @@
 @import "../../../vendor/bower_components/animate.css-scss/_properties";
 @import "../../../vendor/bower_components/animate.css-scss/_bouncing-entrances/bouncing-entrances.scss";
 
-@import "../../../vendor/bower_components/hover/scss/hover.scss";
+//@import "../../../vendor/bower_components/hover/scss/hover.scss";
 
 $ds-font-family: 'Titillium Web', sans-serif !default;
 $ds-font-weight: 300 !default;
@@ -278,6 +278,10 @@ img {
   padding: 60px 0;
   text-align: center;
 
+  a {
+    display: inline-block;
+  }
+
   img {
     max-width: 160px;
   }
@@ -529,7 +533,7 @@ img {
 
 .product__add-to-cart button {
   @include font-smoothing;
-  @include bounce-in;
+  //@include bounce-in;
   @include border-radius(20px);
   box-shadow: $ds-color-yellow 1px 1px 0, $ds-color-yellow 2px 2px 0, $ds-color-yellow 3px 3px 0, $ds-color-green 4px 4px 0, $ds-color-green 5px 5px 0, $ds-color-green 6px 6px 0;
   background: $ds-color-dark;
@@ -557,7 +561,7 @@ img {
 
   a {
     @include font-smoothing;
-    @include bounce-in;
+    //@include bounce-in;
     @include border-radius(20px);
     box-shadow: $ds-color-yellow 1px 1px 0, $ds-color-yellow 2px 2px 0, $ds-color-yellow 3px 3px 0, $ds-color-green 4px 4px 0, $ds-color-green 5px 5px 0, $ds-color-green 6px 6px 0;
     background: $ds-color-dark;
