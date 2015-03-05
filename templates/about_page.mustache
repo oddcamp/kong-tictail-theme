@@ -1,4 +1,28 @@
 {{#about_page}}
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+
+  google.load("feeds", "1");
+
+  function initialize() {
+    var feed = new google.feeds.Feed("http://blog.konginitiative.com/rss");
+    feed.load(function(result) {
+      if (!result.error) {
+        var content = document.getElementById("tumblr-posts");
+        var html = '';
+
+        for (var i = 0; i < result.feed.entries.length; i++) {
+          var entry = result.feed.entries[i];
+          html += '<li><a href="' + entry.link + '">' + entry.title + '</a></li>';
+        }
+
+        content.innerHTML = html;
+      }
+    });
+  }
+  google.setOnLoadCallback(initialize);
+  </script>
+
   <header class="about-logo">
     <h1><a href="/"><img src="/assets/images/kong2.svg" alt="About The Kong Initiative"></a></h1>
   </header>
@@ -55,15 +79,14 @@
     </div>
 
     <div class="about-page__content about-page__follow">
-      <p>Read the blog…</p>
+      <p>From the blog:</p>
 
-      <ul class="social-links">
-        <li>
-          <a href="http://blog.konginitiative.com"><img src="/assets/images/social/tumblr.svg"></a>
-        </li>
+      <ul class="about-page__tumblr-posts" id="tumblr-posts">
+        <li>Loading posts…</li>
       </ul>
+      <!-- / http://blog.konginitiative.com/rss -->
 
-      <p>…socialize…</p>
+      <p>Socialize!</p>
 
       <ul class="social-links">
         <li>
@@ -76,7 +99,10 @@
           <a href="https://instagram.com/konginitiative"><img src="/assets/images/social/instagram.svg"></a>
         </li>
         <li>
-          <a href="https://pinterest.com/konginitiative"><img src="/assets/images/social/pinterest.svg"></a>
+          <a href="https://www.pinterest.com/konginitiative/"><img src="/assets/images/social/pinterest.svg"></a>
+        </li>
+        <li>
+          <a href="http://blog.konginitiative.com"><img src="/assets/images/social/tumblr.svg"></a>
         </li>
       </ul>
 

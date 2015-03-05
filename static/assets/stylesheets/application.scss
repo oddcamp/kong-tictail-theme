@@ -100,7 +100,8 @@ img {
   a {
     @include border-radius(15px);
     background: $ds-color-dark;
-    color: #fff;
+    box-shadow: $ds-color-yellow 1px 1px 0, $ds-color-green 2px 2px 0;
+    color: $ds-color-yellow;
     display: inline-block;
     font-size: 0.8em;
     line-height: 30px;
@@ -143,6 +144,30 @@ img {
     height: 20px;
     width: auto;
   }
+
+  .social-links {
+    a {
+      height: 30px; // foo
+      line-height: 26px;
+      text-align: center;
+      width: 30px;
+
+      img {
+        height: auto;
+        max-width: 14px;
+      }
+    }
+
+    li:nth-child(5) {
+      a {
+        img {
+          max-width: 10px;
+        }
+      }
+    }
+  }
+
+
 
   @include breakpoint($ds-bp-medium) {
     display: inline-block;
@@ -446,6 +471,18 @@ img {
   opacity: .5;
 }
 
+.product__klarna {
+  font-size: .8em;
+  padding-top: 20px;
+  text-decoration: center;
+
+  a {
+    color: $ds-color-dark;
+    font-weight: $ds-font-weight-bold;
+    text-decoration: none;
+  }
+}
+
 .product__description {
   font-size: .8em;
   max-width: 600px;
@@ -670,6 +707,12 @@ img {
   }
 }
 
+.about-page__tumblr-posts {
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+}
+
 .social-links {
   list-style: none;
   margin: 0;
@@ -698,4 +741,9 @@ img {
       max-width: 20px;
     }
   }
+}
+
+// Hide Tictail logo
+html #__ttLogo {
+  display: none !important
 }
