@@ -293,6 +293,7 @@ img {
 
 .specials {
   margin-bottom: 40px;
+  padding: 0 20px;
 
   @include breakpoint($ds-bp-medium) {
     margin-bottom: 80px;
@@ -300,6 +301,7 @@ img {
 
   @include breakpoint($ds-bp-large) {
     margin-bottom: 100px;
+    padding: 0;
   }
 }
 
