@@ -57,16 +57,14 @@ html {
   text-rendering: optimizeLegibility;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-}
 
-body {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 
 body {
   background: url('/assets/images/footer-bg.svg') bottom center no-repeat;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 
   @include breakpoint($ds-bp-medium) {
     padding-left: 30px;
@@ -116,8 +114,17 @@ img {
 }
 
 .footer__links {
+  max-width: 200px;
+  margin: 0 auto 20px;
+
+  @include breakpoint($ds-bp-small) {
+    max-width: none;
+    margin: 0 0 20px;
+  }
+
   @include breakpoint($ds-bp-medium) {
     float: left;
+    margin: 0;
     width: 50%;
   }
 
@@ -129,18 +136,21 @@ img {
     display: inline-block;
     font-size: 0.8em;
     line-height: 30px;
-    margin-bottom: 20px;
-    margin-right: 20px;
+    margin: 0 5px 10px;
     padding: 0 15px;
     text-decoration: none;
     text-transform: uppercase;
 
-    &:first-child {
-      //margin-right: 0;
-    }
-
     &:last-child {
       margin-right: 0;
+    }
+
+    @include breakpoint($ds-bp-small) {
+      margin: 0 10px 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -434,19 +444,19 @@ img {
   z-index: 100;
 
   &:after {
-    background-color: #fff;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    content: "";
-    height: 100%;
-    opacity: .5;
-    position: absolute;
-    right: -10px;
-    top: 10px;
-    width: 100%;
-    z-index: 1;
-  }
+      background-color: #fff;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      content: "";
+      height: 100%;
+      opacity: .5;
+      position: absolute;
+      right: 0;
+      top: 10px;
+      width: 100%;
+      z-index: 1;
+    }
 
   @include breakpoint($ds-bp-medium) {
     padding: 30px;
@@ -456,6 +466,10 @@ img {
   @include breakpoint($ds-bp-large) {
     padding: 60px;
     margin-bottom: 60px;
+
+    &:after {
+      right: -10px;
+    }
   }
 
   .product[data-id="2042320"] &,
@@ -670,8 +684,12 @@ img {
 // -----------------------------------------------------------------------------
 
 .about-logo {
-  padding: 120px 0 60px;
+  padding: 50px 0;
   text-align: center;
+
+  @include breakpoint($ds-bp-medium) {
+    padding: 80px 0;
+  }
 
   a {
     background: rgba($ds-color-dark, .5);
@@ -692,22 +710,24 @@ img {
   text-align: center;
 
   @media (max-width: $ds-bp-small) {
+    .hero-text__title {
+      line-height: 0.8;
+    }
+
     .hero-text__small {
-      font-size: 48px;
+      font-size: 39px;
     }
 
     .hero-text__large {
-      font-size: 64px;
+      font-size: 53px;
     }
   }
 }
 
-
-
 .about-page__content {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px 0 40px;
+  padding: 20px 20px 40px;
   text-align: left;
 
   a {
@@ -718,6 +738,10 @@ img {
   }
 
   @include breakpoint($ds-bp-medium) {
+    padding: 30px 20px 60px;
+  }
+
+  @include breakpoint($ds-bp-large) {
     padding: 30px 0 60px;
   }
 }
