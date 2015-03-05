@@ -92,6 +92,10 @@ img {
     padding-bottom: 210px;
     text-align: left;
   }
+
+  @media (min-width: 1584px) {
+    padding-top: 400px;
+  }
 }
 
 .footer__links {
