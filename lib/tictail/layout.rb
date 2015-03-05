@@ -11,7 +11,7 @@ module Tictail
     def about_page
       page = File.read("./templates/about_page.mustache")
 
-      page.gsub(/\<img src="\/assets/, '<img src="//cdn.konginitiative.com/assets')
+      page.gsub(/\<img src="\/assets/, '<img src="https://kong-cdn.kollegorna.se/assets')
     end
 
     # @return [String]
@@ -19,7 +19,7 @@ module Tictail
       page = File.read("./templates/list_page.mustache")
 
       page.gsub(/\{\{\{price_with_currency\}\}\}/, '{{price_with_currency}}').
-           gsub(/\<img src="\/assets/, '<img src="//cdn.konginitiative.com/assets')
+           gsub(/\<img src="\/assets/, '<img src="https://kong-cdn.kollegorna.se/assets')
     end
 
     # @return [String]
@@ -28,7 +28,7 @@ module Tictail
 
       page.gsub(/\{\{\{social_buttons\}\}\}/, '{{social_buttons}}').
            gsub(/\{\{\{price_with_currency\}\}\}/, '{{price_with_currency}}').
-           gsub(/\<img src="\/assets/, '<img src="//cdn.konginitiative.com/assets').
+           gsub(/\<img src="\/assets/, '<img src="https://kong-cdn.kollegorna.se/assets').
            gsub(/\{\{\{description\}\}\}/, '{{description}}')
     end
 
@@ -38,10 +38,10 @@ module Tictail
 
       layout_string.gsub(/\{\{\{search\}\}\}/, '{{search}}').
                     gsub(/\<script id="theme-builder" src="\/theme-builder.js">\<\/script>/, '').
-                    gsub(/\<script src="\/assets\/dist\/application.min.js">\<\/script>/, '<script src="//cdn.konginitiative.com/assets/dist/application.min.js"></script>').
-                    gsub(/\<link href="\/assets\/dist\/application\.css" rel="stylesheet" type="text\/css">/, '<link rel="stylesheet" type="text/css" href="//cdn.konginitiative.com/assets/dist/application.css">').
-                    gsub(/\<link href="\/assets\/images/, '<link href="//cdn.konginitiative.com/assets/images').
-                    gsub(/\<img src="\/assets/, '<img src="//cdn.konginitiative.com/assets').
+                    gsub(/\<script src="\/assets\/dist\/application.min.js">\<\/script>/, '<script src="https://kong-cdn.kollegorna.se/assets/dist/application.min.js"></script>').
+                    gsub(/\<link href="\/assets\/dist\/application\.css" rel="stylesheet" type="text\/css">/, '<link rel="stylesheet" type="text/css" href="https://kong-cdn.kollegorna.se/assets/dist/application.css">').
+                    gsub(/\<link href="\/assets\/images/, '<link href="https://kong-cdn.kollegorna.se/assets/images').
+                    gsub(/\<img src="\/assets/, '<img src="https://kong-cdn.kollegorna.se/assets').
                     gsub(/\{\{\> tictail\/misc\}\}/, '').
                     gsub(/\{\{#has_children\}\}/, '{{#children?}}').
                     gsub(/\{\{\/has_children\}\}/, '{{/children?}}')
