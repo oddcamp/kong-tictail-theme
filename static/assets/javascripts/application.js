@@ -5,10 +5,9 @@ $(function() {
   });
   function kongAjaxChimpCallback() {
     if (resp.result === 'success') {
-      mixpanel.track(
-      "Subscribed to newsletter",
-        { "Name": social_link }
-      );
+      mixpanel.track("Subscribed to newsletter");
+    } else {
+      mixpanel.track("Newsletter subscription failed");
     }
   }
 
