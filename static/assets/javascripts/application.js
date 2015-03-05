@@ -40,4 +40,16 @@ $(function() {
       clearTimeout(titleScroll);
     }
   );
+
+  // Open social links and blog posts in new window
+  $('.social-links a, .about-page__tumblr-posts a').attr('target', '_blank');
+
+  // Mixpanel tracking
+  $('.social-links a').on('click', function() {
+    var social_link = $(this).attr('data-name');
+    mixpanel.track(
+      "Clicked social link",
+      { "Name": social_link }
+    );
+  });
 });
