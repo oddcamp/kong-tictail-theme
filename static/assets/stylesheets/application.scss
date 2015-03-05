@@ -27,7 +27,6 @@ $ds-bp-xxl: 1680px !default;
 *:before,
 *:after {
   @include box-sizing(border-box);
-  //@include font-smoothing;
 }
 
 html {
@@ -61,6 +60,10 @@ body {
   @include breakpoint($ds-bp-large) {
     padding-left: 40px;
     padding-right: 40px;
+  }
+
+  @media (min-width: 1584px) {
+    background-image: url('/assets/images/footer-bg-large.svg');
   }
 }
 
