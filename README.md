@@ -89,3 +89,6 @@ These are converted when you run `$ rake print`.
 
 See [LICENSE.md](https://github.com/kollegorna/kong-tictail-theme/blob/master/LICENSE.md)
 
+## Tictail documentation
+
+For more details on Tictail theme development see the [official docs](https://tictail.com/docs).
